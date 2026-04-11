@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import NextImage from "next/image";
 import { cn } from "@/lib/cn";
 
 type WordmarkProps = {
@@ -9,8 +10,7 @@ type WordmarkProps = {
 };
 
 /**
- * Temporary text wordmark. Replace with the real SVG from brand_assets/logos/
- * once it lands. Structure: [ENEON] / [ES] with a thin divider.
+ * Eneon ES brand lockup. Renders the real logo SVG alongside the ES label.
  */
 export function Wordmark({
   tone = "default",
@@ -19,28 +19,33 @@ export function Wordmark({
   className,
 }: WordmarkProps) {
   const toneInk = tone === "ink";
-  const colorMain = toneInk ? "text-white" : "text-[var(--color-navy-500)]";
-  const colorDim = toneInk ? "text-white/60" : "text-[var(--color-navy-400)]";
+  const colorDim = toneInk ? "text-white/70" : "text-[var(--color-navy-400)]";
   const divider = toneInk ? "bg-white/30" : "bg-[var(--line-strong)]";
 
-  const sizeMain = {
-    sm: "text-base",
-    md: "text-lg",
-    lg: "text-2xl",
+  const logoHeight = {
+    sm: 20,
+    md: 26,
+    lg: 36,
   }[size];
+
+  const logoWidth = Math.round(logoHeight * (658.24 / 487));
 
   const content = (
     <span
       className={cn(
-        "inline-flex items-center gap-2 font-medium tracking-[-0.02em]",
-        "font-[var(--font-display)]",
-        sizeMain,
-        colorMain,
+        "inline-flex items-center gap-2.5",
         className,
       )}
       aria-label="Eneon ES"
     >
-      <span>Eneon</span>
+      <NextImage
+        src="/brand/eneon-icon.svg"
+        alt=""
+        width={logoWidth}
+        height={logoHeight}
+        priority
+        className={cn(toneInk && "brightness-0 invert")}
+      />
       <span className={cn("h-4 w-px", divider)} aria-hidden />
       <span className={cn("label-mono", colorDim)}>ES</span>
     </span>

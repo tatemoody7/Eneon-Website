@@ -171,10 +171,8 @@ export default function ConnectPage() {
             </div>
             <div className="lg:col-span-7">
               <Image
-                alt="Eneon Connect interface — dashboard placeholder"
-                src={`https://placehold.co/1600x1000/0E2F5C/FAF8F4?text=${encodeURIComponent(
-                  "Eneon Connect — Dashboard",
-                )}`}
+                alt="Eneon Connect intelligent controls interface"
+                src="/images/product/intelligent-controls.webp"
                 ratio="16/9"
                 treatment="ink-wash"
                 fill

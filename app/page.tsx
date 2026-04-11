@@ -173,10 +173,8 @@ export default function HomePage() {
             }
             media={
               <Image
-                alt="Eneon BESS containerized platform — placeholder"
-                src={`https://placehold.co/1600x1200/0E2F5C/FAF8F4?text=${encodeURIComponent(
-                  "Eneon BESS",
-                )}`}
+                alt="Eneon BESS containerized platform"
+                src="/images/product/product-gtr-02.webp"
                 ratio="4/3"
                 treatment="ink-wash"
                 fill

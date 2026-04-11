@@ -164,10 +164,15 @@ export default async function SolutionPage({
             </div>
             <div className="lg:col-span-7">
               <Image
-                alt={`${solution.label} deployment — placeholder`}
-                src={`https://placehold.co/1600x1000/0E2F5C/FAF8F4?text=${encodeURIComponent(
-                  solution.label,
-                )}`}
+                alt={`${solution.label} deployment`}
+                src={
+                  {
+                    microgrids: "/images/projects/project-drone-01.jpg",
+                    utility: "/images/projects/project-p5.jpg",
+                    commercial: "/images/product/build-quality.jpg",
+                    "solar-storage": "/images/projects/project-m-01.webp",
+                  }[solution.slug] ?? "/images/projects/project-drone-01.jpg"
+                }
                 ratio="16/9"
                 treatment="ink-wash"
                 fill

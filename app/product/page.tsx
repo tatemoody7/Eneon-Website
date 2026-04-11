@@ -71,10 +71,8 @@ export default function ProductPage() {
             </div>
             <div className="lg:col-span-5">
               <Image
-                alt="Eneon BESS containerized platform — placeholder"
-                src={`https://placehold.co/1200x1500/0E2F5C/FAF8F4?text=${encodeURIComponent(
-                  "Eneon BESS",
-                )}`}
+                alt="Eneon BESS containerized platform"
+                src="/images/product/product-gtr-01.webp"
                 ratio="3/2"
                 treatment="ink-wash"
                 fill

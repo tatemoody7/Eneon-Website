@@ -15,10 +15,7 @@ export type Project = ProjectCardProps & {
   slug: string;
 };
 
-const placeholderImage = (title: string) => ({
-  src: `https://placehold.co/1200x800/0E2F5C/FAF8F4?text=${encodeURIComponent(title)}`,
-  alt: `${title} — project photo placeholder`,
-});
+const img = (src: string, alt: string) => ({ src, alt });
 
 export const projects: Project[] = [
   {
@@ -38,7 +35,7 @@ export const projects: Project[] = [
       "Integrated with existing community diesel gensets",
       "Remote monitoring via Eneon Connect",
     ],
-    image: placeholderImage("Fort Chipewyan"),
+    image: img("/images/projects/project-drone-01.jpg", "Fort Chipewyan solar + storage microgrid, aerial view"),
   },
   {
     slug: "old-crow",
@@ -56,7 +53,7 @@ export const projects: Project[] = [
       "Fly-in deployment logistics",
       "Seamless handoff with existing diesel infrastructure",
     ],
-    image: placeholderImage("Old Crow"),
+    image: img("/images/projects/project-m-01.webp", "Old Crow solar project, northern Yukon"),
   },
   {
     slug: "colville-lake",
@@ -72,7 +69,7 @@ export const projects: Project[] = [
       "Seasonal load balancing",
       "{TODO: capacity + power rating}",
     ],
-    image: placeholderImage("Colville Lake"),
+    image: img("/images/projects/project-nr-01.webp", "Colville Lake hybrid microgrid"),
   },
   {
     slug: "lutsel-ke",
@@ -87,7 +84,7 @@ export const projects: Project[] = [
       "Diesel displacement + grid resilience",
       "{TODO: year + capacity}",
     ],
-    image: placeholderImage("Łutsël K'é"),
+    image: img("/images/projects/project-m-02.webp", "Łutsël K'é solar + storage deployment"),
   },
   {
     slug: "fort-smith",
@@ -102,7 +99,7 @@ export const projects: Project[] = [
       "Grid-support services",
       "{TODO: project stats}",
     ],
-    image: placeholderImage("Fort Smith"),
+    image: img("/images/projects/project-p5.jpg", "Fort Smith BESS utility storage"),
   },
   {
     slug: "jean-marie-river",
@@ -117,7 +114,7 @@ export const projects: Project[] = [
       "Community-scale deployment",
       "{TODO: project stats}",
     ],
-    image: placeholderImage("Jean Marie River"),
+    image: img("/images/projects/project-m-03.webp", "Jean Marie River microgrid"),
   },
   {
     slug: "wekweeti",
@@ -132,7 +129,7 @@ export const projects: Project[] = [
       "Hybrid with diesel generation",
       "{TODO: project stats}",
     ],
-    image: placeholderImage("Wekweètì"),
+    image: img("/images/projects/project-p7.webp", "Wekweètì hybrid solar + storage"),
   },
   {
     slug: "gameti",
@@ -147,7 +144,7 @@ export const projects: Project[] = [
       "Cold-weather operation",
       "{TODO: project stats}",
     ],
-    image: placeholderImage("Gamètì"),
+    image: img("/images/projects/project-je-01.jpg", "Gamètì solar integration"),
   },
   {
     slug: "whati",
@@ -162,7 +159,7 @@ export const projects: Project[] = [
       "Remote operation",
       "{TODO: project stats}",
     ],
-    image: placeholderImage("Whatì"),
+    image: img("/images/projects/project-dsc01391.jpg", "Whatì BESS installation"),
   },
   {
     slug: "tuktoyaktuk",
@@ -177,7 +174,7 @@ export const projects: Project[] = [
       "Arctic conditions",
       "{TODO: project stats}",
     ],
-    image: placeholderImage("Tuktoyaktuk"),
+    image: img("/images/projects/project-nr-02.webp", "Tuktoyaktuk arctic storage deployment"),
   },
   {
     slug: "inuvik",
@@ -192,7 +189,7 @@ export const projects: Project[] = [
       "Integration with wind and solar",
       "{TODO: project stats}",
     ],
-    image: placeholderImage("Inuvik"),
+    image: img("/images/projects/project-dsc09979.jpg", "Inuvik hybrid system"),
   },
   {
     slug: "aklavik",
@@ -207,7 +204,7 @@ export const projects: Project[] = [
       "Hybrid renewable",
       "{TODO: project stats}",
     ],
-    image: placeholderImage("Aklavik"),
+    image: img("/images/projects/project-img-1350.jpg", "Aklavik Mackenzie Delta microgrid"),
   },
   {
     slug: "fort-good-hope",
@@ -222,7 +219,7 @@ export const projects: Project[] = [
       "Diesel displacement",
       "{TODO: project stats}",
     ],
-    image: placeholderImage("Fort Good Hope"),
+    image: img("/images/projects/project-850-4956.jpg", "Fort Good Hope solar project"),
   },
 ];
 
