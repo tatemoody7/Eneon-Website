@@ -6,3 +6,4 @@ export { Button } from "./Button";
 export { Tag } from "./Tag";
 export { StatDigit } from "./StatDigit";
 export { CertBadge } from "./CertBadge";
+export { Wordmark } from "./Wordmark";
