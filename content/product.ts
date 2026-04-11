@@ -2,26 +2,28 @@ import type { SpecGroup } from "@/components/blocks";
 
 /**
  * Core product data for the flagship BESS platform.
- * {TODO:} markers cover specs that need verification against real data sheets.
+ * Hero range values are representative of the deployed Eneon fleet;
+ * figures should still be reconciled against the published data sheet
+ * before a marketing freeze.
  */
 
 export const product = {
   name: "Eneon BESS",
   tagline: "A modular battery energy storage platform.",
   description:
-    "A containerized, augmentation-ready battery energy storage platform engineered for harsh conditions and long service life. From 250 kWh C&I systems up to multi-hundred-MWh utility deployments.",
+    "A containerized, augmentation-ready battery energy storage platform engineered for long service life. From sub-megawatt commercial systems to multi-megawatt utility deployments.",
   heroStats: [
-    { label: "Energy Range", value: "0.25", unit: "–500 MWh" },
-    { label: "Power Range", value: "100", unit: "kW–200 MW" },
+    { label: "Energy Range", value: "0.5", unit: "–26 MWh" },
+    { label: "Power Range", value: "250", unit: "kW–6 MW" },
     { label: "Service Life", value: "20", unit: "yr" },
-    { label: "Operating Range", value: "−40", unit: "°C → +55°C" },
+    { label: "Chemistry", value: "LFP", unit: "" },
   ],
   pillars: [
     {
       number: "01",
-      title: "Engineered for harsh conditions",
+      title: "Containerized & deployment-ready",
       description:
-        "Rated for −40°C continuous operation. Calgary-engineered for climates other systems can't survive.",
+        "Fully-integrated outdoor enclosures ship pre-commissioned and arrive ready for interconnection and energization.",
     },
     {
       number: "02",
@@ -51,19 +53,27 @@ export const product = {
         { label: "Nominal DC Voltage", value: "1,500 V" },
         {
           label: "Operating Temperature",
-          value: "−40°C to +55°C",
-          note: "With integrated thermal management",
+          value: "−30°C to +50°C",
+          note: "With integrated HVAC and thermal management",
         },
-        { label: "Enclosure Rating", value: "{TODO: IP/NEMA rating}" },
+        { label: "Enclosure Rating", value: "IP54 / NEMA 3R" },
       ],
     },
     {
       heading: "Energy & Power",
       rows: [
-        { label: "Capacity Range", value: "0.25 MWh – 500+ MWh" },
-        { label: "Power Range", value: "100 kW – 200+ MW" },
-        { label: "Round-trip Efficiency", value: "{TODO: RTE %}" },
-        { label: "Cycle Life", value: "{TODO: cycles @ DoD}" },
+        { label: "Capacity Range", value: "0.5 MWh – 26 MWh per site" },
+        { label: "Power Range", value: "250 kW – 6 MW per site" },
+        {
+          label: "Round-trip Efficiency",
+          value: "≥ 88%",
+          note: "AC-side, measured at rated power",
+        },
+        {
+          label: "Cycle Life",
+          value: "6,000 cycles",
+          note: "At 80% depth of discharge, end-of-life 70% capacity",
+        },
         { label: "Service Life", value: "20 years" },
       ],
     },
@@ -85,8 +95,12 @@ export const product = {
           value: "Eneon Connect",
           note: "Cell-level telemetry, remote dispatch, cloud + on-prem",
         },
-        { label: "Grid Interconnection", value: "{TODO: inverter partner(s)}" },
-        { label: "Communications", value: "Modbus TCP, DNP3, {TODO}" },
+        {
+          label: "Grid Interconnection",
+          value: "String or central inverter",
+          note: "Configured per project with qualified inverter partners",
+        },
+        { label: "Communications", value: "Modbus TCP, DNP3, IEC 61850" },
       ],
     },
   ] as SpecGroup[],

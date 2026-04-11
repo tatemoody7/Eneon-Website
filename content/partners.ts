@@ -1,25 +1,23 @@
 import type { LogoItem } from "@/components/blocks";
 
 /**
- * Partner + customer logos for the home page and about page LogoStrip.
- * Per Phase 5 Q&A, we use names from existing project pages as customer
- * proof. Real logo SVGs land in /public/brand/partners/ later.
+ * Partner + customer references used on the home page and about page
+ * LogoStrip. Names sourced from research/company_profile.md and the
+ * existing eneon-es.com project pages. Real logo SVGs land in
+ * /public/brand/partners/ when available.
  */
 
 export const customerLogos: LogoItem[] = [
-  { name: "Fort Chipewyan" },
-  { name: "Old Crow" },
-  { name: "Colville Lake" },
-  { name: "Łutsël K'é" },
-  { name: "Fort Smith" },
-  { name: "Inuvik" },
+  { name: "Freetown, MA" },
+  { name: "Lyon County, MN" },
+  { name: "Beardstown, IL" },
+  { name: "Oregon, IL" },
+  { name: "Southwick, MA" },
+  { name: "Mississauga, ON" },
 ];
 
 export const partnerLogos: LogoItem[] = [
-  { name: "{TODO: inverter partner}" },
-  { name: "{TODO: integrator partner}" },
-  { name: "{TODO: cell supplier}" },
-  { name: "{TODO: EPC partner 1}" },
-  { name: "{TODO: EPC partner 2}" },
-  { name: "{TODO: utility partner}" },
+  { name: "US Clean Energy" },
+  { name: "Canadian Energy" },
+  { name: "Tundra Process Solutions" },
 ];

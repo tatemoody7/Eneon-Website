@@ -31,7 +31,11 @@ export default function TermsPage() {
               Terms of Use
             </h1>
             <p className="label-mono text-[var(--color-paper-500)]">
-              Last updated: {"{TODO: date}"}
+              Last updated: April 2026
+            </p>
+            <p className="text-base text-[var(--color-paper-600)]">
+              These terms are a working draft pending review by Eneon ES legal
+              counsel. For authoritative guidance, contact info@eneon-es.com.
             </p>
           </div>
         </Container>
@@ -44,25 +48,49 @@ export default function TermsPage() {
               <h2 className="text-2xl md:text-3xl font-medium tracking-[-0.02em]">
                 Acceptance of terms
               </h2>
-              <p>{"{TODO: acceptance language}"}</p>
+              <p>
+                By accessing or using eneon-es.com you agree to these Terms of
+                Use and to the site&rsquo;s Privacy Policy. If you do not agree
+                with any part of these terms you should not use the site.
+              </p>
             </section>
             <section className="flex flex-col gap-4">
               <h2 className="text-2xl md:text-3xl font-medium tracking-[-0.02em]">
                 Intellectual property
               </h2>
-              <p>{"{TODO: IP terms}"}</p>
+              <p>
+                All content on this site — including copy, imagery, product
+                specifications, diagrams, and the Eneon and Eneon Connect
+                trademarks — is the property of Eneon ES Inc. or its licensors
+                and is protected under Canadian, US, and international
+                intellectual property law. You may not reproduce, redistribute,
+                or use the content for commercial purposes without prior
+                written consent.
+              </p>
             </section>
             <section className="flex flex-col gap-4">
               <h2 className="text-2xl md:text-3xl font-medium tracking-[-0.02em]">
                 Disclaimers
               </h2>
-              <p>{"{TODO: disclaimer language}"}</p>
+              <p>
+                Information on this site is provided for general engineering
+                and commercial reference only. Product specifications are
+                subject to change without notice and may not reflect
+                site-specific engineering. Any data sheet, quotation, or
+                performance figure issued directly by Eneon ES takes precedence
+                over the content shown here.
+              </p>
             </section>
             <section className="flex flex-col gap-4">
               <h2 className="text-2xl md:text-3xl font-medium tracking-[-0.02em]">
                 Limitation of liability
               </h2>
-              <p>{"{TODO: liability limits}"}</p>
+              <p>
+                To the fullest extent permitted by law, Eneon ES Inc. and its
+                parent company, US Clean Energy, will not be liable for any
+                indirect, incidental, consequential, or special damages arising
+                out of your use of, or inability to use, this website.
+              </p>
             </section>
           </article>
         </Container>

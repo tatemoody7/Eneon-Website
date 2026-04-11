@@ -26,7 +26,7 @@ export const solutions: Solution[] = [
     features: [
       "Black-start and islanded operation",
       "Diesel displacement with solar + storage",
-      "Cold-weather rated enclosures (-40°C)",
+      "Cold-climate thermal management",
       "Remote monitoring via Eneon Connect",
       "Containerized delivery and fast deployment",
     ],

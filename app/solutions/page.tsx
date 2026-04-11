@@ -38,9 +38,9 @@ export default function SolutionsIndexPage() {
               Storage for every grid configuration.
             </h1>
             <p className="max-w-2xl text-lg md:text-xl leading-relaxed text-[var(--color-paper-600)]">
-              From off-grid subarctic microgrids to utility-scale frequency
-              regulation — the same modular Eneon BESS platform, configured to
-              the application.
+              From off-grid microgrids to utility-scale frequency regulation —
+              the same modular Eneon BESS platform, configured to the
+              application.
             </p>
           </div>
         </Container>

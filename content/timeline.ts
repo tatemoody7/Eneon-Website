@@ -1,39 +1,38 @@
 import type { TimelineEntry } from "@/components/blocks";
 
 /**
- * Company timeline. All entries marked {TODO:} for dates that need
- * verification against press releases, LinkedIn, or business registry.
+ * Company timeline. Dates verified against research/company_profile.md.
  */
 
 export const companyTimeline: TimelineEntry[] = [
   {
-    year: "{TODO}",
-    title: "Eneon ES founded in Calgary",
+    year: "2013",
+    title: "Eneon ES founded",
     description:
-      "Eneon ES Inc. incorporated in Calgary, Alberta with a focus on battery energy storage for remote and subarctic communities.",
+      "Eneon ES is established by Canadian Energy as its battery storage arm. R&D facility opens in Markham, Ontario, led by founder and CTO Huang-Yee Iu.",
   },
   {
-    year: "{TODO}",
-    title: "First microgrid deployment",
+    year: "2018",
+    title: "Tundra Process Solutions joins as second partner",
     description:
-      "First field deployment of a solar + storage microgrid for a remote northern community.",
+      "Tundra Process Solutions of Calgary becomes a founding partner, anchoring Eneon's engineering and fabrication operations in Alberta.",
   },
   {
-    year: "{TODO}",
-    title: "Eneon Connect platform launched",
+    year: "2020",
+    title: "First commercial solar + storage projects",
     description:
-      "Launched the Eneon Connect monitoring and dispatch software to give every customer real-time visibility into their BESS.",
+      "Commissions early community-scale DC-coupled solar + storage systems in the US Midwest and New England, alongside Ontario Global Adjustment peak-shaving batteries.",
   },
   {
-    year: "{TODO}",
-    title: "UL 9540 system certification",
+    year: "2022",
+    title: "Eneon Connect launched",
     description:
-      "Flagship BESS platform certified to UL 9540, with large-scale fire propagation testing under UL 9540A.",
+      "Releases the Eneon Connect monitoring and dispatch platform, shipping by default with every BESS and providing cell-level telemetry and remote operations.",
   },
   {
-    year: "{TODO}",
-    title: "Expansion to utility scale",
+    year: "2023",
+    title: "Joins US Clean Energy",
     description:
-      "First utility-scale deployment marks the expansion from microgrid-focused work to multi-megawatt grid support projects.",
+      "Eneon ES is acquired by US Clean Energy, expanding commercial reach across North America while retaining its senior engineering team and Calgary base.",
   },
 ];

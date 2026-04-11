@@ -20,10 +20,17 @@ export function MobileMenu() {
   const pathname = usePathname();
   const triggerRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const lastPathnameRef = useRef(pathname);
 
-  // Close on route change
+  // Close on route change (skip first render + only update when actually changed).
+  // setState in effect is required here because pathname changes come from the
+  // router, not a user interaction inside this component.
   useEffect(() => {
-    setOpen(false);
+    if (lastPathnameRef.current !== pathname) {
+      lastPathnameRef.current = pathname;
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setOpen(false);
+    }
   }, [pathname]);
 
   // Scroll lock + Escape key

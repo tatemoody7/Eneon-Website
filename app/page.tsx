@@ -11,7 +11,7 @@ import {
   Hairline,
   CertBadge,
 } from "@/components/atoms";
-import { Image } from "@/components/media";
+import { Image, Video, HeroMedia } from "@/components/media";
 import {
   StatBlock,
   FeatureGrid,
@@ -38,39 +38,62 @@ export default function HomePage() {
   return (
     <PageShell>
       {/* ─── Hero ─────────────────────────────────────────────────────── */}
-      <Section tone="paper" padding="xl" blueprint hairlineBottom>
-        <Container>
-          <div className="flex flex-col gap-10 max-w-5xl">
-            <EyebrowLabel number={1}>{home.hero.eyebrow}</EyebrowLabel>
-
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-[-0.035em] leading-[0.98] text-[var(--color-navy-500)]">
-              {home.hero.headline}
-            </h1>
-
-            <p className="max-w-2xl text-lg md:text-xl leading-relaxed text-[var(--color-paper-600)]">
-              {home.hero.subhead}
-            </p>
-
-            <div className="flex flex-wrap gap-3">
-              <Button
-                variant="primary"
-                size="lg"
-                href={home.hero.primaryCta.href}
-                trailingIcon
-              >
-                {home.hero.primaryCta.label}
-              </Button>
-              <Button
-                variant="secondary"
-                size="lg"
-                href={home.hero.secondaryCta.href}
-              >
-                {home.hero.secondaryCta.label}
-              </Button>
-            </div>
+      <section className="hairline-b">
+        <HeroMedia height="xl" gradient="bottom" grain>
+          <div className="absolute inset-0">
+            <Video
+              alt="Eneon particle wave visualization"
+              sources={[
+                { src: "/videos/particle-wave.webm", type: "video/webm" },
+                { src: "/videos/particle-wave.mp4", type: "video/mp4" },
+              ]}
+              poster="/videos/particle-wave-poster.jpg"
+              ratio="auto"
+              autoPlay
+              loop
+              muted
+              desktopOnlyAutoplay
+              frameClassName="h-full w-full"
+            />
           </div>
-        </Container>
-      </Section>
+          <div className="relative z-10 h-full flex items-end">
+            <Container>
+              <div className="flex flex-col gap-10 max-w-5xl py-24 md:py-32">
+                <EyebrowLabel number={1} tone="ink">
+                  {home.hero.eyebrow}
+                </EyebrowLabel>
+
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-[-0.035em] leading-[0.98] text-white">
+                  {home.hero.headline}
+                </h1>
+
+                <p className="max-w-2xl text-lg md:text-xl leading-relaxed text-white/75">
+                  {home.hero.subhead}
+                </p>
+
+                <div className="flex flex-wrap gap-3">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    href={home.hero.primaryCta.href}
+                    trailingIcon
+                  >
+                    {home.hero.primaryCta.label}
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    href={home.hero.secondaryCta.href}
+                    className="text-white border-white/30 hover:bg-white hover:text-[var(--color-navy-500)]"
+                  >
+                    {home.hero.secondaryCta.label}
+                  </Button>
+                </div>
+              </div>
+            </Container>
+          </div>
+        </HeroMedia>
+      </section>
 
       {/* ─── Stats strip ──────────────────────────────────────────────── */}
       <Section tone="paper" padding="sm" hairlineBottom>
@@ -282,8 +305,8 @@ export default function HomePage() {
           <CalloutBlock
             tone="default"
             eyebrow="Engineered in Canada"
-            title="We build battery systems for the places and customers other storage companies find too hard."
-            body="Remote communities, harsh climates, long timelines — every deployment comes with real engineering, real field support, and the software to prove it."
+            title="Containerized battery platforms, built by engineers who commission their own systems."
+            body="Every Eneon deployment is designed, fabricated, and supported by the same senior team — from system sizing through twenty years of operation. Real engineering. Real field support. The software to prove it."
             footer={
               <span className="label-mono text-[var(--color-paper-500)]">
                 Eneon ES — Calgary, AB

@@ -17,15 +17,15 @@ import { projects, totalProjects } from "@/content/projects";
 export const metadata: Metadata = {
   title: "Projects — Eneon ES",
   description:
-    "Operational battery energy storage projects across Canada — from subarctic microgrids to grid-support utility deployments.",
+    "Operational battery energy storage projects across North America — from Massachusetts community solar to Ontario Global Adjustment peak shaving.",
 };
 
 export default function ProjectsIndexPage() {
   const indexStats = [
     { value: totalProjects.toString(), unit: "", label: "Projects Deployed" },
-    { value: "250", unit: "MWh", label: "Capacity Online" },
-    { value: "13", unit: "", label: "Communities Served" },
-    { value: "−40", unit: "°C", label: "Coldest Operational" },
+    { value: "85", unit: "MWh", label: "Capacity Online" },
+    { value: "20", unit: "yr", label: "Service Life" },
+    { value: "2013", unit: "", label: "Operating Since" },
   ];
 
   return (
@@ -46,8 +46,9 @@ export default function ProjectsIndexPage() {
               Deployed where it matters.
             </h1>
             <p className="max-w-2xl text-lg md:text-xl leading-relaxed text-[var(--color-paper-600)]">
-              From the east arm of Great Slave Lake to the Arctic coast — every
-              Eneon system operates in a place where downtime is not an option.
+              From New England community solar to Ontario Global Adjustment
+              peak shaving — every Eneon system operates where reliability and
+              economics have to work together.
             </p>
           </div>
         </Container>
@@ -65,7 +66,7 @@ export default function ProjectsIndexPage() {
             eyebrow="All Projects"
             eyebrowNumber={2}
             title="Every Eneon deployment."
-            description="Each card links to a full case study with operational data, diesel displacement figures, and deployment logistics."
+            description="Each card links to a full case study with capacity, power, commissioning year, and deployment context."
             align="start"
           />
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

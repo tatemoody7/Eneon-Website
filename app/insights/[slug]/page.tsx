@@ -86,10 +86,15 @@ export default async function InsightPage({
         <Container width="narrow">
           <article className="flex flex-col gap-6 text-lg leading-relaxed text-[var(--color-navy-500)]">
             {post.body ? (
-              <p className="whitespace-pre-line">{post.body}</p>
+              post.body
+                .split(/\n\n+/)
+                .map((paragraph, i) => (
+                  <p key={i}>{paragraph.trim()}</p>
+                ))
             ) : (
               <p className="label-mono text-[var(--color-paper-500)]">
-                {"{TODO: full article body}"}
+                Full article coming soon — contact info@eneon-es.com for the
+                working draft.
               </p>
             )}
             <Hairline />

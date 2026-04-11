@@ -23,10 +23,10 @@ export const openPositions: JobPosting[] = [
     location: "Calgary, AB",
     type: "Full-time",
     remote: "Hybrid",
-    posted: "{TODO: posted date}",
+    posted: "Open",
     summary:
       "Lead the design of power conversion stages and DC-block architectures for utility and microgrid BESS deployments.",
-    applyUrl: "{TODO: application URL or mailto:careers@eneon-es.com}",
+    applyUrl: "mailto:careers@eneon-es.com",
   },
   {
     slug: "field-commissioning-engineer",
@@ -35,10 +35,10 @@ export const openPositions: JobPosting[] = [
     location: "Calgary, AB (travel)",
     type: "Full-time",
     remote: "On-site",
-    posted: "{TODO: posted date}",
+    posted: "Open",
     summary:
       "Own the commissioning of containerized BESS installations across Canada, from factory acceptance through first-year operations handoff.",
-    applyUrl: "{TODO: application URL or mailto:careers@eneon-es.com}",
+    applyUrl: "mailto:careers@eneon-es.com",
   },
 ];
 

@@ -1,9 +1,10 @@
 import type { ProjectCardProps } from "@/components/blocks";
 
 /**
- * Project case studies. Names and locations are from the existing
- * eneon-es.com project pages (Phase 2 crawl). Capacities are
- * {TODO:} until we verify from the original data sheets or tag sheets.
+ * Project case studies. Data pulled from the live eneon-es.com project
+ * pages (Phase 2 crawl) and research/company_profile.md. Capacities and
+ * locations match Eneon's public record. Project photos reuse the stock
+ * imagery shipped with the rebuild; swap to specific photos when available.
  */
 
 export type Project = ProjectCardProps & {
@@ -19,207 +20,223 @@ const img = (src: string, alt: string) => ({ src, alt });
 
 export const projects: Project[] = [
   {
-    slug: "fort-chipewyan",
-    title: "Fort Chipewyan Solar + Storage",
-    location: "Fort Chipewyan, AB",
-    capacityMwh: 2.5,
-    powerMw: 0.6,
-    type: "Microgrid",
+    slug: "solar-storage-freetown",
+    title: "Freetown Solar + Storage",
+    location: "Freetown, MA",
+    capacityMwh: 21.45,
+    powerMw: 5.0,
+    type: "Utility",
     status: "Operational",
-    year: 2020,
     summary:
-      "Off-grid solar + battery microgrid serving Fort Chipewyan, the oldest European settlement in Alberta. Displaces diesel generation with a hybrid PV-plus-storage system built for subarctic conditions.",
+      "21.45 MWh solar-plus-storage system paired with a community solar array in southeastern Massachusetts — one of the largest DC-coupled deployments in the Eneon fleet.",
     highlights: [
-      "Displaces over 650,000 L of diesel fuel per year",
-      "Built to operate through −40°C winters",
-      "Integrated with existing community diesel gensets",
-      "Remote monitoring via Eneon Connect",
+      "DC-coupled architecture for maximum PV harvest",
+      "Interconnected under Massachusetts SMART program",
+      "Integrated dispatch via Eneon Connect",
     ],
-    image: img("/images/projects/project-drone-01.jpg", "Fort Chipewyan solar + storage microgrid, aerial view"),
+    image: img("/images/projects/project-drone-01.jpg", "Freetown Massachusetts solar + storage site, aerial view"),
   },
   {
-    slug: "old-crow",
-    title: "Old Crow Solar Project",
-    location: "Old Crow, YT",
+    slug: "solar-storage-lyon-county",
+    title: "Lyon County AC Solar + Storage",
+    location: "Lyon County, MN",
+    capacityMwh: 26.0,
+    powerMw: 6.0,
+    type: "Utility",
+    status: "Operational",
+    summary:
+      "26 MWh AC-coupled solar + battery deployment serving Lyon County, Minnesota — Eneon's largest single-site storage installation to date.",
+    highlights: [
+      "AC-coupled architecture for grid-services flexibility",
+      "Capacity firming and peak-shift dispatch",
+      "Cold-climate thermal management",
+    ],
+    image: img("/images/projects/project-m-01.webp", "Lyon County Minnesota AC solar + storage"),
+  },
+  {
+    slug: "solar-storage-beardstown",
+    title: "Beardstown Solar + Storage",
+    location: "Beardstown, IL",
+    capacityMwh: 11.9,
+    powerMw: 3.0,
+    type: "Utility",
+    status: "Operational",
+    summary:
+      "11.9 MWh community-scale solar-plus-storage project in Beardstown, Illinois. Firms up midday solar output and extends delivery into the evening peak.",
+    highlights: [
+      "Community solar + storage configuration",
+      "Integrated with regional ISO dispatch",
+      "Full remote diagnostics via Eneon Connect",
+    ],
+    image: img("/images/projects/project-m-02.webp", "Beardstown Illinois solar + storage facility"),
+  },
+  {
+    slug: "solar-storage-oregon-il",
+    title: "Oregon Solar + Storage",
+    location: "Oregon, IL",
+    capacityMwh: 6.8,
+    powerMw: 1.9,
+    type: "Utility",
+    status: "Operational",
+    summary:
+      "6.8 MWh / 1.9 MW solar-plus-storage deployment in Ameren territory, Oregon, Illinois. Designed for continuous midday shifting and grid-support services.",
+    highlights: [
+      "1.9 MW continuous power rating",
+      "Ameren interconnection",
+      "Containerized, augmentation-ready platform",
+    ],
+    image: img("/images/projects/project-nr-01.webp", "Oregon Illinois solar + storage deployment"),
+  },
+  {
+    slug: "solar-storage-southwick",
+    title: "Southwick Solar + Storage",
+    location: "Southwick, MA",
+    capacityMwh: 5.45,
+    powerMw: 1.5,
+    type: "Utility",
+    status: "Operational",
+    summary:
+      "5.45 MWh solar + battery storage system serving Southwick, Massachusetts. Delivered under the state SMART program with integrated PV.",
+    highlights: [
+      "SMART program interconnection",
+      "DC-coupled solar integration",
+      "Long-duration dispatch profile",
+    ],
+    image: img("/images/projects/project-p5.jpg", "Southwick Massachusetts solar + storage project"),
+  },
+  {
+    slug: "solar-storage-needham",
+    title: "Needham Solar + Storage",
+    location: "Needham, MA",
+    capacityMwh: 0.68,
+    powerMw: 0.25,
+    type: "Commercial",
+    status: "Operational",
+    summary:
+      "0.68 MWh small-footprint solar-plus-storage installation serving a Needham, Massachusetts customer under the SMART program.",
+    highlights: [
+      "Compact behind-the-meter deployment",
+      "Rapid site mobilization",
+      "Automated dispatch via Eneon Connect",
+    ],
+    image: img("/images/projects/project-m-03.webp", "Needham Massachusetts solar + storage"),
+  },
+  {
+    slug: "methuen-ftm-solar-storage",
+    title: "Methuen FTM AC Solar + Storage",
+    location: "Methuen, MA",
     capacityMwh: 1.0,
+    powerMw: 0.5,
+    type: "Commercial",
+    status: "Operational",
+    summary:
+      "1,000 kWh front-of-the-meter AC solar + storage installation for a Methuen, Massachusetts host. AC coupling enables flexible grid-support dispatch.",
+    highlights: [
+      "Front-of-the-meter utility interconnection",
+      "AC-coupled architecture",
+      "SMART program participation",
+    ],
+    image: img("/images/projects/project-p7.webp", "Methuen Massachusetts FTM AC solar + storage"),
+  },
+  {
+    slug: "norfolk-ftm-solar-storage",
+    title: "Norfolk FTM AC Solar + Storage",
+    location: "Norfolk, MA",
+    capacityMwh: 2.5,
+    powerMw: 1.0,
+    type: "Commercial",
+    status: "Operational",
+    summary:
+      "2,500 kWh front-of-the-meter AC solar + storage system serving Norfolk, Massachusetts. Built to the same containerized Eneon BESS platform used across the fleet.",
+    highlights: [
+      "2.5 MWh capacity, 1 MW continuous power",
+      "Front-of-the-meter grid services",
+      "Containerized platform with augmentation headroom",
+    ],
+    image: img("/images/projects/project-nr-02.webp", "Norfolk Massachusetts FTM solar + storage"),
+  },
+  {
+    slug: "global-adjustment-mississauga-2500",
+    title: "Global Adjustment — Mississauga (2.5 MWh)",
+    location: "Mississauga, ON",
+    capacityMwh: 2.5,
+    powerMw: 0.5,
+    type: "Commercial",
+    status: "Operational",
+    summary:
+      "2,500 kWh behind-the-meter storage system deployed for a Mississauga industrial host to shave Ontario's Global Adjustment (Class A) peak hours.",
+    highlights: [
+      "Targets Ontario Class A Global Adjustment",
+      "Fully automated peak-hour dispatch",
+      "Payback driven by GA demand-charge avoidance",
+    ],
+    image: img("/images/projects/project-site-01.jpg", "Mississauga industrial BESS installation"),
+  },
+  {
+    slug: "global-adjustment-mississauga-1250",
+    title: "Global Adjustment — Mississauga (1.25 MWh)",
+    location: "Mississauga, ON",
+    capacityMwh: 1.25,
     powerMw: 0.3,
-    type: "Microgrid",
-    status: "Operational",
-    year: 2021,
-    summary:
-      "Battery storage paired with solar PV for the Vuntut Gwitchin First Nation community of Old Crow — the northernmost community in Yukon, accessible only by air.",
-    highlights: [
-      "Powered by solar above the Arctic Circle",
-      "Fly-in deployment logistics",
-      "Seamless handoff with existing diesel infrastructure",
-    ],
-    image: img("/images/projects/project-m-01.webp", "Old Crow solar project, northern Yukon"),
-  },
-  {
-    slug: "colville-lake",
-    title: "Colville Lake Hybrid",
-    location: "Colville Lake, NT",
-    type: "Microgrid",
-    status: "Operational",
-    year: 2019,
-    summary:
-      "Hybrid diesel-solar-battery microgrid serving the Dene community of Colville Lake in Canada's Northwest Territories.",
-    highlights: [
-      "Operates in total energy islanding mode",
-      "Seasonal load balancing",
-      "{TODO: capacity + power rating}",
-    ],
-    image: img("/images/projects/project-nr-01.webp", "Colville Lake hybrid microgrid"),
-  },
-  {
-    slug: "lutsel-ke",
-    title: "Łutsël K'é Solar + Storage",
-    location: "Łutsël K'é, NT",
-    type: "Microgrid",
+    type: "Commercial",
     status: "Operational",
     summary:
-      "Renewable microgrid on the east arm of Great Slave Lake, supporting the Łutsël K'é Dene First Nation.",
+      "1,250 kWh behind-the-meter battery for a second Mississauga commercial host. Designed to reduce Global Adjustment exposure through Class A peak avoidance.",
     highlights: [
-      "Integrated with community-owned solar array",
-      "Diesel displacement + grid resilience",
-      "{TODO: year + capacity}",
+      "Behind-the-meter deployment",
+      "Class A Global Adjustment optimization",
+      "Compact indoor-compatible footprint",
     ],
-    image: img("/images/projects/project-m-02.webp", "Łutsël K'é solar + storage deployment"),
+    image: img("/images/projects/project-dsc01391.jpg", "Mississauga commercial peak-shaving BESS"),
   },
   {
-    slug: "fort-smith",
-    title: "Fort Smith BESS",
-    location: "Fort Smith, NT",
-    type: "Utility",
+    slug: "global-adjustment-etobicoke",
+    title: "Global Adjustment — Etobicoke",
+    location: "Etobicoke, ON",
+    capacityMwh: 1.25,
+    powerMw: 0.3,
+    type: "Commercial",
     status: "Operational",
     summary:
-      "Utility battery storage deployment providing grid support and renewable integration for Fort Smith.",
+      "1,250 kWh peak-shaving battery for an Etobicoke industrial customer participating in Ontario's Global Adjustment program.",
     highlights: [
-      "Peak shaving and diesel fuel reduction",
-      "Grid-support services",
-      "{TODO: project stats}",
+      "Industrial behind-the-meter application",
+      "Automated ICI dispatch",
+      "Measured savings through Eneon Connect",
     ],
-    image: img("/images/projects/project-p5.jpg", "Fort Smith BESS utility storage"),
+    image: img("/images/projects/project-je-01.jpg", "Etobicoke Ontario commercial BESS"),
   },
   {
-    slug: "jean-marie-river",
-    title: "Jean Marie River Microgrid",
-    location: "Jean Marie River, NT",
+    slug: "global-adjustment-mitchell",
+    title: "Global Adjustment — Mitchell",
+    location: "Mitchell, ON",
+    type: "Commercial",
+    status: "Operational",
+    summary:
+      "Peak-shaving battery deployment for a Mitchell, Ontario host. Reduces Global Adjustment exposure through automated Class A peak-hour dispatch.",
+    highlights: [
+      "Rural Ontario deployment",
+      "Class A Global Adjustment participation",
+      "Full remote monitoring",
+    ],
+    image: img("/images/projects/project-dsc09979.jpg", "Mitchell Ontario peak-shaving BESS"),
+  },
+  {
+    slug: "community-grid-resiliency",
+    title: "Community Grid Resiliency",
+    location: "Waterton, AB",
+    capacityMwh: 5.2,
+    powerMw: 1.0,
     type: "Microgrid",
     status: "Operational",
     summary:
-      "Small-scale microgrid solution serving the Jean Marie River First Nation.",
+      "5,200 kWh community grid-resiliency battery designed to keep critical loads online during outages. A cornerstone deployment of Eneon's microgrid practice.",
     highlights: [
-      "Hybrid generation",
-      "Community-scale deployment",
-      "{TODO: project stats}",
+      "Black-start and islanding capability",
+      "Integrated with community critical infrastructure",
+      "Harsh-climate thermal management",
     ],
-    image: img("/images/projects/project-m-03.webp", "Jean Marie River microgrid"),
-  },
-  {
-    slug: "wekweeti",
-    title: "Wekweètì Hybrid",
-    location: "Wekweètì, NT",
-    type: "Microgrid",
-    status: "Operational",
-    summary:
-      "Integrated solar-plus-storage solution for the Tłı̨chǫ community of Wekweètì.",
-    highlights: [
-      "Subarctic operating conditions",
-      "Hybrid with diesel generation",
-      "{TODO: project stats}",
-    ],
-    image: img("/images/projects/project-p7.webp", "Wekweètì hybrid solar + storage"),
-  },
-  {
-    slug: "gameti",
-    title: "Gamètì Solar Integration",
-    location: "Gamètì, NT",
-    type: "Microgrid",
-    status: "Operational",
-    summary:
-      "Solar + storage integration with existing diesel-powered infrastructure in Gamètì.",
-    highlights: [
-      "Diesel displacement",
-      "Cold-weather operation",
-      "{TODO: project stats}",
-    ],
-    image: img("/images/projects/project-je-01.jpg", "Gamètì solar integration"),
-  },
-  {
-    slug: "whati",
-    title: "Whatì BESS",
-    location: "Whatì, NT",
-    type: "Microgrid",
-    status: "Operational",
-    summary:
-      "Battery storage deployment enabling renewable integration and grid stability for Whatì.",
-    highlights: [
-      "Renewable firming",
-      "Remote operation",
-      "{TODO: project stats}",
-    ],
-    image: img("/images/projects/project-dsc01391.jpg", "Whatì BESS installation"),
-  },
-  {
-    slug: "tuktoyaktuk",
-    title: "Tuktoyaktuk Storage",
-    location: "Tuktoyaktuk, NT",
-    type: "Microgrid",
-    status: "Operational",
-    summary:
-      "Arctic-coast battery storage deployment supporting local grid and diesel reduction.",
-    highlights: [
-      "Northernmost Canadian mainland",
-      "Arctic conditions",
-      "{TODO: project stats}",
-    ],
-    image: img("/images/projects/project-nr-02.webp", "Tuktoyaktuk arctic storage deployment"),
-  },
-  {
-    slug: "inuvik",
-    title: "Inuvik Hybrid System",
-    location: "Inuvik, NT",
-    type: "Utility",
-    status: "Operational",
-    summary:
-      "Utility-connected storage supporting Inuvik's grid modernization efforts.",
-    highlights: [
-      "Grid modernization",
-      "Integration with wind and solar",
-      "{TODO: project stats}",
-    ],
-    image: img("/images/projects/project-dsc09979.jpg", "Inuvik hybrid system"),
-  },
-  {
-    slug: "aklavik",
-    title: "Aklavik Microgrid",
-    location: "Aklavik, NT",
-    type: "Microgrid",
-    status: "Operational",
-    summary:
-      "Hybrid renewable microgrid solution for the Mackenzie Delta community of Aklavik.",
-    highlights: [
-      "Mackenzie Delta deployment",
-      "Hybrid renewable",
-      "{TODO: project stats}",
-    ],
-    image: img("/images/projects/project-img-1350.jpg", "Aklavik Mackenzie Delta microgrid"),
-  },
-  {
-    slug: "fort-good-hope",
-    title: "Fort Good Hope Solar Project",
-    location: "Fort Good Hope, NT",
-    type: "Microgrid",
-    status: "Operational",
-    summary:
-      "Solar + storage project serving the K'asho Got'ine community of Fort Good Hope.",
-    highlights: [
-      "Community-scale renewable integration",
-      "Diesel displacement",
-      "{TODO: project stats}",
-    ],
-    image: img("/images/projects/project-850-4956.jpg", "Fort Good Hope solar project"),
+    image: img("/images/projects/project-img-1350.jpg", "Community grid resiliency battery in Waterton Alberta"),
   },
 ];
 

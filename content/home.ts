@@ -14,29 +14,29 @@ export const home = {
     secondaryCta: { label: "Explore the Platform", href: "/product" },
   },
   stats: [
-    { value: "250", unit: "MWh", label: "Capacity Deployed" },
+    { value: "85", unit: "MWh", label: "Capacity Deployed" },
     { value: "13", unit: "", label: "Projects Operational" },
+    { value: "2013", unit: "", label: "Founded" },
     { value: "20", unit: "yr", label: "Service Life" },
-    { value: "−40", unit: "°C", label: "Cold-Rated" },
   ],
   intro: {
     eyebrow: "Who we are",
     title:
       "A senior team of engineers and field specialists, based in Calgary.",
     description:
-      "We build battery systems for the places and customers other storage companies find too hard — remote communities, harsh climates, long timelines. Every deployment comes with real engineering, real field support, and the software to prove it.",
+      "Founded in 2013 inside Canadian Energy's Markham R&D facility, Eneon ES designs, builds, and operates containerized battery energy storage systems for solar developers, utilities, and commercial hosts across North America.",
   },
   solutionsIntro: {
     eyebrow: "What we build for",
     title: "Storage for every grid configuration.",
     description:
-      "From off-grid subarctic microgrids to utility-scale frequency regulation — the same modular platform, configured to the application.",
+      "From commercial peak-shaving batteries to utility-scale solar + storage — the same modular platform, configured to the application.",
   },
   productIntro: {
     eyebrow: "The platform",
     title: "One modular BESS platform. Every application.",
     description:
-      "A containerized, augmentation-ready battery energy storage platform engineered for harsh conditions and long service life.",
+      "A containerized, augmentation-ready battery energy storage platform engineered for long service life and transparent operation.",
   },
   connectIntro: {
     eyebrow: "The software",
@@ -48,7 +48,7 @@ export const home = {
     eyebrow: "Field proof",
     title: "Deployed where it matters.",
     description:
-      "From the east arm of Great Slave Lake to the Arctic coast — our systems operate in places where downtime is not an option.",
+      "From Massachusetts to Minnesota and across Ontario — our systems firm up solar, shave commercial peak demand, and deliver grid services at scale.",
   },
   finalCta: {
     eyebrow: "Ready to build",

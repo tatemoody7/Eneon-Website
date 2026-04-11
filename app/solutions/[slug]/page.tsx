@@ -107,7 +107,7 @@ export default async function SolutionPage({
       <Section tone="raised" padding="sm" hairlineBottom>
         <Container>
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-            <EyebrowLabel number={2}>Who it's for</EyebrowLabel>
+            <EyebrowLabel number={2}>Who it&apos;s for</EyebrowLabel>
             <p className="text-xl md:text-2xl font-medium tracking-[-0.02em] text-[var(--color-navy-500)]">
               {solution.audience}
             </p>
@@ -149,7 +149,7 @@ export default async function SolutionPage({
               </h2>
               <p className="text-lg leading-relaxed text-[var(--color-paper-600)] max-w-xl">
                 Every Eneon deployment uses the same modular, augmentation-ready
-                platform. The difference is in how it's configured — power
+                platform. The difference is in how it&apos;s configured — power
                 electronics, thermal management, and controls tuned to your
                 application.
               </p>

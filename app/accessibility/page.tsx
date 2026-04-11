@@ -32,7 +32,7 @@ export default function AccessibilityPage() {
               Accessibility
             </h1>
             <p className="label-mono text-[var(--color-paper-500)]">
-              Last updated: {"{TODO: date}"}
+              Last updated: April 2026
             </p>
           </div>
         </Container>

@@ -11,7 +11,7 @@ export const company = {
     "Eneon ES designs, builds, and operates battery energy storage systems for microgrids, utilities, and commercial projects across North America.",
   shortDescription:
     "Battery energy storage systems engineered for microgrids, utilities, and commercial projects.",
-  founded: "{TODO: founding year — verify in research/company_profile.md}",
+  founded: "2013",
   headquarters: {
     city: "Calgary",
     region: "Alberta",

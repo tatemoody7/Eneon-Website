@@ -10,7 +10,7 @@ import {
   EyebrowLabel,
   CertBadge,
 } from "@/components/atoms";
-import { Image } from "@/components/media";
+import { Video } from "@/components/media";
 import {
   StatBlock,
   FeatureGrid,
@@ -25,7 +25,7 @@ import { certifications } from "@/content/certifications";
 export const metadata: Metadata = {
   title: "Eneon BESS — The Platform",
   description:
-    "A containerized, augmentation-ready battery energy storage platform engineered for harsh conditions and 20-year service life.",
+    "A containerized, augmentation-ready battery energy storage platform engineered for 20-year service life and deployed across North America.",
 };
 
 export default function ProductPage() {
@@ -70,13 +70,19 @@ export default function ProductPage() {
               </div>
             </div>
             <div className="lg:col-span-5">
-              <Image
-                alt="Eneon BESS containerized platform"
-                src="/images/product/product-gtr-01.webp"
+              <Video
+                alt="Eneon BESS FlexBlock modular battery architecture animation"
+                sources={[
+                  { src: "/videos/flexblock.webm", type: "video/webm" },
+                  { src: "/videos/flexblock.mp4", type: "video/mp4" },
+                ]}
+                poster="/videos/flexblock-poster.jpg"
                 ratio="3/2"
+                autoPlay
+                loop
+                muted
+                desktopOnlyAutoplay
                 treatment="ink-wash"
-                fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
               />
             </div>
           </div>
@@ -97,7 +103,7 @@ export default function ProductPage() {
             eyebrow="Engineering pillars"
             eyebrowNumber={2}
             title="Four principles, one platform."
-            description="Every Eneon BESS deployment is built on the same engineering commitments — from the Yukon to Saskatchewan."
+            description="Every Eneon BESS deployment is built on the same engineering commitments — from Massachusetts community solar to Ontario Global Adjustment."
             align="start"
           />
           <div className="mt-16">
@@ -123,9 +129,7 @@ export default function ProductPage() {
                 The numbers behind the platform.
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-[var(--color-paper-600)]">
-                Complete specifications for the containerized Eneon BESS. Some
-                fields are marked pending verification against the production
-                data sheet.
+                Complete specifications for the containerized Eneon BESS platform. Contact engineering for a full data sheet tailored to your site conditions.
               </p>
               <Button
                 variant="ghost"
@@ -206,8 +210,8 @@ export default function ProductPage() {
           <CalloutBlock
             tone="default"
             eyebrow="Field proof"
-            title="Built for −40°C. Proven from the Mackenzie Delta to the Arctic coast."
-            body="The Eneon BESS is deployed across 13 operational projects in some of the harshest conditions in North America."
+            title="Thirteen operational deployments across North America."
+            body="The Eneon BESS is deployed across 13 operational projects — from 21.45 MWh community solar + storage in Massachusetts to 26 MWh AC-coupled storage in Minnesota and commercial peak-shaving batteries across Ontario."
             footer={
               <Button variant="ghost" href="/projects" trailingIcon>
                 See the projects

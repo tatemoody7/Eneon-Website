@@ -1,8 +1,9 @@
 import type { TeamCardProps } from "@/components/blocks";
 
 /**
- * Team roster. {TODO:} markers cover names/titles pending verification
- * from LinkedIn or the current team page.
+ * Team roster. Sourced from research/company_profile.md cross-referenced
+ * against the live eneon-es.com team page and the 2023 USCE acquisition
+ * press release. Bios are condensed from public LinkedIn and press sources.
  */
 
 export type TeamMember = TeamCardProps & {
@@ -13,36 +14,56 @@ export type TeamMember = TeamCardProps & {
 
 export const team: TeamMember[] = [
   {
-    slug: "leadership-1",
+    slug: "ken-franklin",
     order: 1,
-    name: "{TODO: CEO name}",
-    title: "Chief Executive Officer",
+    name: "Ken Franklin",
+    title: "President",
     department: "Leadership",
-    bio: "{TODO: short bio — 2–3 sentences from LinkedIn or current team page}",
+    photo: {
+      src: "/images/team/ken-franklin.webp",
+      alt: "Ken Franklin, President of Eneon ES",
+    },
+    bio: "20+ years in project management and engineering across Canadian energy infrastructure. P.Eng and PMP. Joined Eneon after seven years with Tundra Process Solutions. Named President in 2023.",
   },
   {
-    slug: "leadership-2",
+    slug: "huang-iu",
     order: 2,
-    name: "{TODO: CTO name}",
-    title: "Chief Technology Officer",
+    name: "Huang-Yee Iu",
+    title: "Founder & Chief Technology Officer",
     department: "Leadership",
-    bio: "{TODO: short bio}",
+    photo: {
+      src: "/images/team/huang-iu.png",
+      alt: "Huang-Yee Iu, Founder and CTO of Eneon ES",
+    },
+    bio: "Mechanical engineer (B.A.Sc., M.A.Sc., University of Toronto) with two decades in battery systems — from automotive PHEV packs at A123 Systems to stationary microgrid storage. Founded Eneon ES in 2013 inside Canadian Energy's Markham R&D facility.",
   },
   {
-    slug: "leadership-3",
+    slug: "jason-beacock",
     order: 3,
-    name: "{TODO: VP Engineering name}",
-    title: "VP, Engineering",
-    department: "Leadership",
-    bio: "{TODO: short bio}",
+    name: "Jason Beacock",
+    title: "Chief Commercial Officer",
+    department: "Commercial",
+    photo: {
+      src: "/images/team/jason-beacock.webp",
+      alt: "Jason Beacock, Chief Commercial Officer of Eneon ES",
+    },
+    bio: "25+ years in energy, infrastructure, and project commercialization. Leads sales, marketing, and customer strategy across the North American fleet.",
   },
   {
-    slug: "leadership-4",
+    slug: "jason-ehrman",
     order: 4,
-    name: "{TODO: Head of Operations}",
-    title: "Head of Operations",
+    name: "Jason Ehrman",
+    title: "Managing Director, Operations & Execution",
     department: "Operations",
-    bio: "{TODO: short bio}",
+    bio: "25+ years across military defense, oil & gas, and renewables. Oversees project management, engineering, supply chain, procurement, and project finance.",
+  },
+  {
+    slug: "joshua-wiseman",
+    order: 5,
+    name: "Joshua Wiseman",
+    title: "Managing Director, Technical Services",
+    department: "Operations",
+    bio: "15+ years leading industrial services and operations teams. Runs commissioning, field operations, and long-term maintenance programs across the deployed fleet.",
   },
 ];
 
