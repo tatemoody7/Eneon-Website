@@ -1,26 +1,285 @@
 @import "tailwindcss";
 
+/* =========================================================================
+   ENEON ES — DESIGN TOKENS
+   Aesthetic: Industrial precision cartography
+   Reference: research/design_system.md
+   ========================================================================= */
+
+@theme {
+  /* ---------- COLOR: NAVY (primary surface + ink) ---------- */
+  --color-navy-50: #E8EEF7;
+  --color-navy-100: #C8D5E8;
+  --color-navy-200: #94ACCD;
+  --color-navy-300: #5F7FAE;
+  --color-navy-400: #2E5285;
+  --color-navy-500: #0E2F5C;
+  --color-navy-600: #0A2447;
+  --color-navy-700: #071A33;
+  --color-navy-800: #05121F;
+  --color-navy-900: #030A14;
+  --color-navy-950: #01060D;
+
+  /* ---------- COLOR: ACCENT (electric cyan) ---------- */
+  --color-accent-50: #E6FBFF;
+  --color-accent-100: #B8F5FF;
+  --color-accent-200: #7AECFF;
+  --color-accent-300: #3CE1FF;
+  --color-accent-400: #00D4FF;
+  --color-accent-500: #00D4FF;
+  --color-accent-600: #00A8CC;
+  --color-accent-700: #007C99;
+  --color-accent-800: #005166;
+  --color-accent-900: #002933;
+
+  /* ---------- COLOR: NEUTRAL (warm paper) ---------- */
+  --color-paper-50:  #FAF8F4;
+  --color-paper-100: #F4F0E8;
+  --color-paper-200: #E8E1D2;
+  --color-paper-300: #D4CAB3;
+  --color-paper-400: #A89B7D;
+  --color-paper-500: #7A6F55;
+  --color-paper-600: #574F3C;
+  --color-paper-700: #3B3528;
+  --color-paper-800: #241F16;
+  --color-paper-900: #14110B;
+
+  /* ---------- COLOR: SEMANTIC ---------- */
+  --color-signal-warn: #F2B705;
+  --color-signal-error: #E5484D;
+  --color-signal-ok: #30A46C;
+
+  /* ---------- COLOR: SURFACE ROLES ---------- */
+  --color-surface-ink: #0A1628;
+  --color-surface-base: #FAF8F4;
+  --color-surface-raised: #FFFFFF;
+  --color-surface-sunken: #F4F0E8;
+
+  /* ---------- FONTS ----------
+     Söhne Breit is a paid foundry font; until a licensed copy is added via
+     @font-face, the display stack falls back to Inter Tight (loaded via
+     next/font in app/layout.tsx) which shares a similar geometric silhouette.
+     When Söhne Breit is added, drop it in /public/fonts/ and declare it here
+     with `font-display: swap` — then prepend it to --font-display.
+  */
+  --font-display: var(--font-inter-tight), "Neue Haas Grotesk Display", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* ---------- TYPE SCALE (rem, designed on 16px base) ---------- */
+  --text-micro: 0.6875rem;   /* 11px — mono labels */
+  --text-mono-sm: 0.75rem;   /* 12px — small mono */
+  --text-xs: 0.8125rem;      /* 13px */
+  --text-sm: 0.875rem;       /* 14px */
+  --text-base: 1rem;         /* 16px — body */
+  --text-lg: 1.125rem;       /* 18px — lead */
+  --text-xl: 1.375rem;       /* 22px */
+  --text-2xl: 1.75rem;       /* 28px */
+  --text-3xl: 2.25rem;       /* 36px — section heading */
+  --text-4xl: 3rem;          /* 48px */
+  --text-5xl: 4rem;          /* 64px */
+  --text-6xl: 4.5rem;        /* 72px — display */
+  --text-7xl: 5.625rem;      /* 90px — hero */
+
+  /* ---------- SPACING (4px base, 11-step) ---------- */
+  --spacing: 0.25rem;        /* Tailwind v4 reads this as the base unit */
+
+  /* ---------- RADIUS: 0px default (locked from old site) ---------- */
+  --radius-none: 0px;
+  --radius-sm: 0px;
+  --radius: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-full: 9999px; /* only for pill chips */
+
+  /* ---------- HAIRLINE WEIGHT ---------- */
+  --stroke-hairline: 1px;
+  --stroke-line: 1.5px;
+  --stroke-heavy: 2px;
+
+  /* ---------- SHADOW (navy-tinted, layered) ---------- */
+  --shadow-sm:
+    0 1px 0 0 rgba(14, 47, 92, 0.06),
+    0 1px 2px 0 rgba(14, 47, 92, 0.08);
+  --shadow-md:
+    0 1px 0 0 rgba(14, 47, 92, 0.06),
+    0 4px 8px -2px rgba(14, 47, 92, 0.10),
+    0 2px 4px -1px rgba(14, 47, 92, 0.06);
+  --shadow-lg:
+    0 1px 0 0 rgba(14, 47, 92, 0.08),
+    0 12px 24px -6px rgba(14, 47, 92, 0.16),
+    0 4px 8px -2px rgba(14, 47, 92, 0.08);
+  --shadow-hairline: inset 0 0 0 1px rgba(14, 47, 92, 0.12);
+  --shadow-hairline-strong: inset 0 0 0 1px rgba(14, 47, 92, 0.24);
+
+  /* ---------- MOTION ---------- */
+  --ease-precision: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.2, 0.64, 1);
+  --duration-fast: 160ms;
+  --duration-base: 240ms;
+  --duration-slow: 480ms;
+
+  /* ---------- BREAKPOINTS (Tailwind defaults, declared for reference) ---------- */
+  --breakpoint-sm: 40rem;   /* 640 */
+  --breakpoint-md: 48rem;   /* 768 */
+  --breakpoint-lg: 64rem;   /* 1024 */
+  --breakpoint-xl: 80rem;   /* 1280 */
+  --breakpoint-2xl: 96rem;  /* 1536 */
+}
+
+/* =========================================================================
+   ROOT / BODY
+   ========================================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --bg: var(--color-surface-base);
+  --ink: var(--color-navy-500);
+  --ink-muted: var(--color-paper-600);
+  --line: rgba(14, 47, 92, 0.16);
+  --line-strong: rgba(14, 47, 92, 0.28);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "ss03", "cv11", "tnum";
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.55;
+  font-weight: 400;
+}
+
+/* Typographic baseline for display headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--color-navy-500);
+}
+
+/* Tight tracking on very large headings */
+h1 { letter-spacing: -0.035em; }
+h2 { letter-spacing: -0.03em; }
+
+::selection {
+  background: var(--color-accent-500);
+  color: var(--color-navy-500);
+}
+
+/* Focus-visible is the ONLY allowed focus indicator */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
+
+/* =========================================================================
+   UTILITIES — HAIRLINES
+   ========================================================================= */
+
+@layer utilities {
+  .hairline-t { border-top: var(--stroke-hairline) solid var(--line); }
+  .hairline-b { border-bottom: var(--stroke-hairline) solid var(--line); }
+  .hairline-l { border-left:  var(--stroke-hairline) solid var(--line); }
+  .hairline-r { border-right: var(--stroke-hairline) solid var(--line); }
+  .hairline   { border: var(--stroke-hairline) solid var(--line); }
+
+  .hairline-strong-t { border-top: var(--stroke-hairline) solid var(--line-strong); }
+  .hairline-strong-b { border-bottom: var(--stroke-hairline) solid var(--line-strong); }
+  .hairline-strong   { border: var(--stroke-hairline) solid var(--line-strong); }
+
+  /* Ink-on-light hairlines, used on dark navy sections */
+  .hairline-ink-t { border-top: var(--stroke-hairline) solid rgba(255, 255, 255, 0.14); }
+  .hairline-ink-b { border-bottom: var(--stroke-hairline) solid rgba(255, 255, 255, 0.14); }
+  .hairline-ink   { border: var(--stroke-hairline) solid rgba(255, 255, 255, 0.14); }
+
+  /* Eyebrow label */
+  .label-mono {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Stat digits — tabular, display font */
+  .stat-digit {
+    font-family: var(--font-display);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+  }
+}
+
+/* =========================================================================
+   BLUEPRINT GRID OVERLAY (signature visual element)
+   Use: <div class="bg-blueprint"> or apply `--grid-stroke` override
+   ========================================================================= */
+
+.bg-blueprint {
+  --grid-size: 48px;
+  --grid-stroke: rgba(14, 47, 92, 0.06);
+  background-image:
+    linear-gradient(to right, var(--grid-stroke) var(--stroke-hairline), transparent var(--stroke-hairline)),
+    linear-gradient(to bottom, var(--grid-stroke) var(--stroke-hairline), transparent var(--stroke-hairline));
+  background-size: var(--grid-size) var(--grid-size);
+}
+
+.bg-blueprint-ink {
+  --grid-size: 48px;
+  --grid-stroke: rgba(255, 255, 255, 0.05);
+  background-color: var(--color-navy-500);
+  background-image:
+    linear-gradient(to right, var(--grid-stroke) var(--stroke-hairline), transparent var(--stroke-hairline)),
+    linear-gradient(to bottom, var(--grid-stroke) var(--stroke-hairline), transparent var(--stroke-hairline));
+  background-size: var(--grid-size) var(--grid-size);
+}
+
+/* =========================================================================
+   GRAIN / NOISE (for dark hero surfaces)
+   Applied as ::after with an inline SVG feTurbulence
+   ========================================================================= */
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/></svg>");
+}
+
+/* =========================================================================
+   MOTION — reduced motion override
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================================
+   PRINT
+   ========================================================================= */
+
+@media print {
+  .bg-blueprint,
+  .bg-blueprint-ink,
+  .grain::after { background-image: none; }
 }
