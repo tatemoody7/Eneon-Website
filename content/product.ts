@@ -104,6 +104,64 @@ export const product = {
       ],
     },
   ] as SpecGroup[],
+  anatomy: [
+    {
+      slug: "cabinet",
+      label: "Cabinet",
+      description:
+        "Modular DC-block cabinets integrate cells, racks, BMS, and thermal control into a single serviceable unit.",
+      video: "/videos/anatomy-cabinet.webm",
+    },
+    {
+      slug: "enclosure",
+      label: "Enclosure",
+      description:
+        "Outdoor-rated IP54 / NEMA 3R container with integrated cable management, access points, and fire-rated barriers.",
+      video: "/videos/anatomy-enclosure.webm",
+    },
+    {
+      slug: "battery",
+      label: "Battery",
+      description:
+        "LFP cells grouped into fire-tested modules with cell-level voltage and temperature telemetry to Eneon Connect.",
+      video: "/videos/anatomy-battery.webm",
+    },
+    {
+      slug: "pcs",
+      label: "Power Conversion System",
+      description:
+        "String or central inverter architectures, matched per project with qualified PCS partners for grid-forming or grid-following operation.",
+      video: "/videos/anatomy-pcs.webm",
+    },
+    {
+      slug: "controller",
+      label: "Site Controller & Eneon OS",
+      description:
+        "The platform brain — coordinates dispatch, protection, telemetry, and cloud sync across every cabinet on the pad.",
+      video: "/videos/anatomy-controller.webm",
+    },
+    {
+      slug: "thermal",
+      label: "Thermal Control",
+      description:
+        "Integrated HVAC and liquid-cooling loops hold cells in their operating envelope from −30°C to +50°C ambient.",
+      video: "/videos/anatomy-thermal.webm",
+    },
+    {
+      slug: "safety",
+      label: "Safety Systems",
+      description:
+        "UL 9540A fire-tested, with multi-stage detection, deflagration venting, and NFPA 855 compliant installation design.",
+      video: "/videos/anatomy-safety.webm",
+    },
+    {
+      slug: "security",
+      label: "Security System",
+      description:
+        "Site access control, tamper detection, and audited remote dispatch via Eneon Connect role-based permissions.",
+      video: "/videos/anatomy-security.webm",
+    },
+  ],
 };
 
 export const connect = {

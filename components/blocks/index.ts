@@ -11,8 +11,10 @@ export { SpecTable } from "./SpecTable";
 export { SplitFeature } from "./SplitFeature";
 export { CTABlock } from "./CTABlock";
 export { Breadcrumbs } from "./Breadcrumbs";
+export { ProductAnatomyTabs } from "./ProductAnatomyTabs";
 
 export type { ProjectCardProps } from "./ProjectCard";
+export type { AnatomyTab } from "./ProductAnatomyTabs";
 export type { TeamCardProps } from "./TeamCard";
 export type { FeatureItem } from "./FeatureGrid";
 export type { Stat } from "./StatBlock";

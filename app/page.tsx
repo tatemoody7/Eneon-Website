@@ -42,10 +42,9 @@ export default function HomePage() {
         <HeroMedia height="xl" gradient="bottom" grain>
           <div className="absolute inset-0">
             <Video
-              alt="Eneon particle wave visualization"
+              alt="Eneon energy system diorama — containerized BESS with wind and solar generation"
               sources={[
-                { src: "/videos/particle-wave.webm", type: "video/webm" },
-                { src: "/videos/particle-wave.mp4", type: "video/mp4" },
+                { src: "/videos/energy-diorama.mp4", type: "video/mp4" },
               ]}
               poster="/videos/particle-wave-poster.jpg"
               ratio="auto"
