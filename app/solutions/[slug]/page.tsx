@@ -11,7 +11,6 @@ import { Image, Video, HeroMedia } from "@/components/media";
 import {
   FeatureGrid,
   CTABlock,
-  CalloutBlock,
   Breadcrumbs,
   ProjectCard,
 } from "@/components/blocks";
@@ -244,32 +243,15 @@ export default async function SolutionPage({
         </Section>
       )}
 
-      {/* ─── Callout ────────────────────────────────────────────────── */}
-      <Section tone="paper" padding="lg" hairlineBottom>
-        <Container>
-          <CalloutBlock
-            tone="default"
-            eyebrow={solution.label}
-            title={solution.tagline}
-            body={solution.description}
-            footer={
-              <span className="label-mono text-[var(--color-paper-500)]">
-                {solution.audience}
-              </span>
-            }
-          />
-        </Container>
-      </Section>
-
       {/* ─── Final CTA ──────────────────────────────────────────────── */}
       <Section tone="paper" padding="lg">
         <Container>
           <CTABlock
             tone="ink"
             blueprint
-            eyebrow="Next step"
+            eyebrow={solution.label}
             title={`Tell us about your ${solution.label.toLowerCase()} project.`}
-            description="An Eneon engineer will respond within one business day."
+            description={`${solution.description} — ${solution.audience}. An Eneon engineer will respond within one business day.`}
             primary={{ label: "Request a Quote", href: "/quote" }}
             secondary={{ label: "Size my System", href: "/sizing-tool" }}
           />

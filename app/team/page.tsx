@@ -10,7 +10,6 @@ import {
   TeamCard,
   CTABlock,
   Breadcrumbs,
-  CalloutBlock,
 } from "@/components/blocks";
 import { team } from "@/content/team";
 
@@ -72,25 +71,14 @@ export default function TeamPage() {
         </Container>
       </Section>
 
-      <Section tone="raised" padding="lg" hairlineBottom>
-        <Container>
-          <CalloutBlock
-            tone="default"
-            eyebrow="Culture"
-            title="Engineer for the 20-year view, not the quarterly demo."
-            body="We build systems for sites where a truck roll costs a week. That discipline shows up in every decision we make — from cell chemistry to cable routing."
-          />
-        </Container>
-      </Section>
-
       <Section tone="paper" padding="lg">
         <Container>
           <CTABlock
             tone="ink"
             blueprint
             eyebrow="Join us"
-            title="We're hiring senior engineers and field specialists."
-            description="If you care about doing storage right — not fast — we'd love to hear from you."
+            title="Engineer for the 20-year view, not the quarterly demo."
+            description="We build systems for sites where a truck roll costs a week. That discipline shows up in every decision we make — from cell chemistry to cable routing. If you care about doing storage right — not fast — we'd love to hear from you."
             primary={{ label: "Open Positions", href: "/careers" }}
             secondary={{ label: "Contact Us", href: "/contact" }}
           />
