@@ -7,7 +7,7 @@ import {
   SectionHeader,
 } from "@/components/layout";
 import { Button, EyebrowLabel, Icon, Tag } from "@/components/atoms";
-import { Image } from "@/components/media";
+import { Image, Video, HeroMedia } from "@/components/media";
 import {
   FeatureGrid,
   CTABlock,
@@ -77,31 +77,56 @@ export default async function SolutionPage({
       </Section>
 
       {/* ─── Hero ─────────────────────────────────────────────────────── */}
-      <Section tone="paper" padding="xl" blueprint hairlineBottom>
-        <Container>
-          <div className="flex flex-col gap-10 max-w-5xl">
-            <div className="flex items-center gap-4">
-              <Icon icon={SolutionIcon} size="lg" />
-              <EyebrowLabel number={1}>Solution</EyebrowLabel>
-            </div>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-[-0.035em] leading-[0.98] text-[var(--color-navy-500)]">
-              {solution.label}.<br />
-              {solution.tagline}
-            </h1>
-            <p className="max-w-2xl text-lg md:text-xl leading-relaxed text-[var(--color-paper-600)]">
-              {solution.description}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Button variant="primary" size="lg" href="/quote" trailingIcon>
-                Request a Quote
-              </Button>
-              <Button variant="secondary" size="lg" href="/product">
-                See the Platform
-              </Button>
-            </div>
+      <section className="hairline-b">
+        <HeroMedia height="lg" gradient="bottom" grain>
+          <div className="absolute inset-0">
+            <Video
+              alt={`${solution.label} energy storage deployment`}
+              sources={[
+                { src: "/videos/particle-wave.webm", type: "video/webm" },
+                { src: "/videos/particle-wave.mp4", type: "video/mp4" },
+              ]}
+              poster="/videos/particle-wave-poster.jpg"
+              ratio="auto"
+              autoPlay
+              loop
+              muted
+              desktopOnlyAutoplay
+              frameClassName="h-full w-full"
+            />
           </div>
-        </Container>
-      </Section>
+          <div className="relative z-10 h-full flex items-end">
+            <Container>
+              <div className="flex flex-col gap-10 max-w-5xl py-24 md:py-32">
+                <div className="flex items-center gap-4">
+                  <Icon icon={SolutionIcon} size="lg" className="text-white" />
+                  <EyebrowLabel number={1} tone="ink">Solution</EyebrowLabel>
+                </div>
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-[-0.035em] leading-[0.98] text-white">
+                  {solution.label}.<br />
+                  {solution.tagline}
+                </h1>
+                <p className="max-w-2xl text-lg md:text-xl leading-relaxed text-white/70">
+                  {solution.description}
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Button variant="primary" size="lg" href="/quote" trailingIcon>
+                    Request a Quote
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    href="/product"
+                    className="text-white border-white/30 hover:bg-white hover:text-[var(--color-navy-500)]"
+                  >
+                    See the Platform
+                  </Button>
+                </div>
+              </div>
+            </Container>
+          </div>
+        </HeroMedia>
+      </section>
 
       {/* ─── Audience strip ──────────────────────────────────────────── */}
       <Section tone="raised" padding="sm" hairlineBottom>

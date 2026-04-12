@@ -16,7 +16,7 @@ import {
   SectionHeader,
 } from "@/components/layout";
 import { Button, EyebrowLabel } from "@/components/atoms";
-import { Image } from "@/components/media";
+import { Image, Video, HeroMedia } from "@/components/media";
 import {
   FeatureGrid,
   CalloutBlock,
@@ -84,36 +84,56 @@ export default function ConnectPage() {
         </Container>
       </Section>
 
-      {/* ─── Hero (ink + blueprint) ──────────────────────────────────── */}
-      <Section tone="ink" padding="xl" blueprint hairlineBottom>
-        <Container>
-          <div className="flex flex-col gap-10 max-w-5xl">
-            <EyebrowLabel number={1} tone="ink">
-              The Software Platform
-            </EyebrowLabel>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-[-0.035em] leading-[0.98] text-white">
-              {connect.name}.<br />
-              {connect.tagline}
-            </h1>
-            <p className="max-w-2xl text-lg md:text-xl leading-relaxed text-white/70">
-              {connect.description}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Button variant="ink" size="lg" href="/quote" trailingIcon>
-                Request a Demo
-              </Button>
-              <Button
-                variant="secondary"
-                size="lg"
-                href="/product"
-                className="text-white border-white/30 hover:bg-white hover:text-[var(--color-navy-500)]"
-              >
-                Back to Product
-              </Button>
-            </div>
+      {/* ─── Hero (ink + video) ──────────────────────────────────────── */}
+      <section className="hairline-b">
+        <HeroMedia height="lg" gradient="bottom" grain>
+          <div className="absolute inset-0">
+            <Video
+              alt="Abstract particle wave visualization"
+              sources={[
+                { src: "/videos/particle-wave.webm", type: "video/webm" },
+                { src: "/videos/particle-wave.mp4", type: "video/mp4" },
+              ]}
+              poster="/videos/particle-wave-poster.jpg"
+              ratio="auto"
+              autoPlay
+              loop
+              muted
+              desktopOnlyAutoplay
+              frameClassName="h-full w-full"
+            />
           </div>
-        </Container>
-      </Section>
+          <div className="relative z-10 h-full flex items-end">
+            <Container>
+              <div className="flex flex-col gap-10 max-w-5xl py-24 md:py-32">
+                <EyebrowLabel number={1} tone="ink">
+                  The Software Platform
+                </EyebrowLabel>
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-[-0.035em] leading-[0.98] text-white">
+                  {connect.name}.<br />
+                  {connect.tagline}
+                </h1>
+                <p className="max-w-2xl text-lg md:text-xl leading-relaxed text-white/70">
+                  {connect.description}
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Button variant="ink" size="lg" href="/quote" trailingIcon>
+                    Request a Demo
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    href="/product"
+                    className="text-white border-white/30 hover:bg-white hover:text-[var(--color-navy-500)]"
+                  >
+                    Back to Product
+                  </Button>
+                </div>
+              </div>
+            </Container>
+          </div>
+        </HeroMedia>
+      </section>
 
       {/* ─── Telemetry stats ─────────────────────────────────────────── */}
       <Section tone="ink" padding="sm" hairlineBottom>

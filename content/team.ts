@@ -55,6 +55,10 @@ export const team: TeamMember[] = [
     name: "Jason Ehrman",
     title: "Managing Director, Operations & Execution",
     department: "Operations",
+    photo: {
+      src: "/images/team/jason-ehrman.jpg",
+      alt: "Jason Ehrman, Managing Director of Operations & Execution at Eneon ES",
+    },
     bio: "25+ years across military defense, oil & gas, and renewables. Oversees project management, engineering, supply chain, procurement, and project finance.",
   },
   {
@@ -63,6 +67,10 @@ export const team: TeamMember[] = [
     name: "Joshua Wiseman",
     title: "Managing Director, Technical Services",
     department: "Operations",
+    photo: {
+      src: "/images/team/joshua-wiseman.jpg",
+      alt: "Joshua Wiseman, Managing Director of Technical Services at Eneon ES",
+    },
     bio: "15+ years leading industrial services and operations teams. Runs commissioning, field operations, and long-term maintenance programs across the deployed fleet.",
   },
 ];

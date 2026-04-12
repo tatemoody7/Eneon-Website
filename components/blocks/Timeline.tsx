@@ -1,9 +1,11 @@
+import NextImage from "next/image";
 import { cn } from "@/lib/cn";
 
 export type TimelineEntry = {
   year: string | number;
   title: string;
   description?: string;
+  image?: { src: string; alt: string };
 };
 
 type TimelineProps = {
@@ -73,7 +75,7 @@ export function Timeline({
         <li
           key={`${e.year}-${i}`}
           className={cn(
-            "grid grid-cols-[auto_1fr] gap-8 py-8",
+            "grid grid-cols-[auto_1fr] gap-8 py-10",
             i > 0 && (ink ? "hairline-ink-t" : "hairline-t"),
           )}
         >
@@ -85,7 +87,7 @@ export function Timeline({
           >
             {e.year}
           </span>
-          <div className="flex flex-col gap-2 pt-2">
+          <div className="flex flex-col gap-4 pt-2">
             <h3
               className={cn(
                 "text-2xl font-medium tracking-[-0.02em]",
@@ -103,6 +105,18 @@ export function Timeline({
               >
                 {e.description}
               </p>
+            )}
+            {e.image && (
+              <div className="relative mt-2 aspect-[16/9] max-w-md overflow-hidden rounded-sm">
+                <NextImage
+                  src={e.image.src}
+                  alt={e.image.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-[var(--color-navy-500)]/8 mix-blend-multiply pointer-events-none" />
+              </div>
             )}
           </div>
         </li>

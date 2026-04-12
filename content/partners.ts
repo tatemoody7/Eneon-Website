@@ -17,7 +17,7 @@ export const customerLogos: LogoItem[] = [
 ];
 
 export const partnerLogos: LogoItem[] = [
-  { name: "US Clean Energy" },
+  { name: "US Clean Energy", src: "/images/partners/usce-logo.png" },
   { name: "Canadian Energy" },
   { name: "Tundra Process Solutions" },
 ];

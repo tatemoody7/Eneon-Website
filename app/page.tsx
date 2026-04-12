@@ -194,14 +194,25 @@ export default function HomePage() {
               </div>
             }
             media={
-              <Image
-                alt="Eneon BESS containerized platform"
-                src="/images/product/product-gtr-02.webp"
-                ratio="4/3"
-                treatment="ink-wash"
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-              />
+              <div className="flex flex-col gap-4">
+                <Image
+                  alt="Eneon BESS containerized platform"
+                  src="/images/product/product-gtr-02.webp"
+                  ratio="4/3"
+                  treatment="ink-wash"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                />
+                <Image
+                  alt="FlexBlock BESS enclosure blueprint"
+                  src="/images/product/blueprints/flexblock-blueprint.png"
+                  ratio="2/1"
+                  treatment="tinted"
+                  caption="FlexBlock system architecture"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                />
+              </div>
             }
           />
         </Container>
@@ -301,17 +312,49 @@ export default function HomePage() {
       {/* ─── Pullquote / brand callout ───────────────────────────────── */}
       <Section tone="paper" padding="lg" hairlineBottom>
         <Container>
-          <CalloutBlock
-            tone="default"
-            eyebrow="Engineered in Canada"
-            title="Containerized battery platforms, built by engineers who commission their own systems."
-            body="Every Eneon deployment is designed, fabricated, and supported by the same senior team — from system sizing through twenty years of operation. Real engineering. Real field support. The software to prove it."
-            footer={
-              <span className="label-mono text-[var(--color-paper-500)]">
-                Eneon ES — Calgary, AB
-              </span>
-            }
-          />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <CalloutBlock
+              tone="default"
+              eyebrow="Engineered in Canada"
+              title="Containerized battery platforms, built by engineers who commission their own systems."
+              body="Every Eneon deployment is designed, fabricated, and supported by the same senior team — from system sizing through twenty years of operation. Real engineering. Real field support. The software to prove it."
+              footer={
+                <span className="label-mono text-[var(--color-paper-500)]">
+                  Eneon ES — Calgary, AB
+                </span>
+              }
+            />
+            <div className="grid grid-cols-2 gap-2">
+              <Image
+                src="/images/misc/marketing-01.webp"
+                alt="Eneon BESS system in the field"
+                ratio="square"
+                treatment="ink-wash"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
+              <Image
+                src="/images/misc/marketing-02.webp"
+                alt="Eneon engineering and fabrication"
+                ratio="square"
+                treatment="ink-wash"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
+              <Image
+                src="/images/misc/marketing-03.webp"
+                alt="Eneon battery storage deployment"
+                ratio="square"
+                treatment="ink-wash"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
+              <Image
+                src="/images/product/build-quality.jpg"
+                alt="FlexBlock build quality — precision manufacturing"
+                ratio="square"
+                treatment="ink-wash"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
+            </div>
+          </div>
         </Container>
       </Section>
 

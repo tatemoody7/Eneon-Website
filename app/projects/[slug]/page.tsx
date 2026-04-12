@@ -168,7 +168,7 @@ export default async function ProjectCaseStudyPage({
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4">
-              <EyebrowLabel number={3}>Highlights</EyebrowLabel>
+              <EyebrowLabel number={1}>Highlights</EyebrowLabel>
               <h2 className="mt-6 text-3xl md:text-5xl font-medium tracking-[-0.03em] leading-[1.05] text-[var(--color-navy-500)]">
                 Project highlights.
               </h2>
@@ -195,6 +195,44 @@ export default async function ProjectCaseStudyPage({
         </Container>
       </Section>
 
+      {/* ─── Gallery + Map ──────────────────────────────────────────── */}
+      {(project.gallery?.length || project.mapImage) && (
+        <Section tone="raised" padding="lg" hairlineBottom>
+          <Container>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+              <div className="lg:col-span-4">
+                <EyebrowLabel number={2}>Site imagery</EyebrowLabel>
+                <h2 className="mt-6 text-2xl md:text-3xl font-medium tracking-[-0.02em] text-[var(--color-navy-500)]">
+                  From the field.
+                </h2>
+              </div>
+              <div className="lg:col-span-8 grid grid-cols-2 gap-4">
+                {project.gallery?.map((img, i) => (
+                  <Image
+                    key={`gallery-${i}`}
+                    src={img.src}
+                    alt={img.alt}
+                    ratio="4/3"
+                    treatment="ink-wash"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                  />
+                ))}
+                {project.mapImage && (
+                  <Image
+                    src={project.mapImage.src}
+                    alt={project.mapImage.alt}
+                    ratio="4/3"
+                    treatment="tinted"
+                    caption="Project location"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                  />
+                )}
+              </div>
+            </div>
+          </Container>
+        </Section>
+      )}
+
       {/* ─── Callout ────────────────────────────────────────────────── */}
       <Section tone="paper" padding="lg" hairlineBottom>
         <Container>
@@ -218,7 +256,7 @@ export default async function ProjectCaseStudyPage({
           <Container>
             <SectionHeader
               eyebrow="Related projects"
-              eyebrowNumber={4}
+              eyebrowNumber={3}
               title="More Eneon deployments."
               align="start"
             />
