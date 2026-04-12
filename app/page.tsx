@@ -18,7 +18,6 @@ import {
   ProjectCard,
   CTABlock,
   SplitFeature,
-  CalloutBlock,
 } from "@/components/blocks";
 import { home } from "@/content/home";
 import { projects } from "@/content/projects";
@@ -309,22 +308,22 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* ─── Pullquote / brand callout ───────────────────────────────── */}
-      <Section tone="paper" padding="lg" hairlineBottom>
+      {/* ─── Final CTA ──────────────────────────────────────────────── */}
+      <Section tone="paper" padding="lg">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <CalloutBlock
-              tone="default"
-              eyebrow="Engineered in Canada"
-              title="Containerized battery platforms, built by engineers who commission their own systems."
-              body="Every Eneon deployment is designed, fabricated, and supported by the same senior team — from system sizing through twenty years of operation. Real engineering. Real field support. The software to prove it."
-              footer={
-                <span className="label-mono text-[var(--color-paper-500)]">
-                  Eneon ES — Calgary, AB
-                </span>
-              }
-            />
-            <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8">
+              <CTABlock
+                tone="ink"
+                blueprint
+                eyebrow="Engineered in Canada"
+                title="Containerized battery platforms, built by engineers who commission their own systems."
+                description="Every Eneon deployment is designed, fabricated, and supported by the same senior team — from system sizing through twenty years of operation. An Eneon engineer will respond within one business day."
+                primary={home.finalCta.primary}
+                secondary={home.finalCta.secondary}
+              />
+            </div>
+            <div className="lg:col-span-4 grid grid-cols-2 gap-2">
               <Image
                 src="/images/misc/marketing-01.webp"
                 alt="Eneon BESS system in the field"
@@ -355,21 +354,6 @@ export default function HomePage() {
               />
             </div>
           </div>
-        </Container>
-      </Section>
-
-      {/* ─── Final CTA (ink + blueprint) ─────────────────────────────── */}
-      <Section tone="paper" padding="lg">
-        <Container>
-          <CTABlock
-            tone="ink"
-            blueprint
-            eyebrow={home.finalCta.eyebrow}
-            title={home.finalCta.title}
-            description={home.finalCta.description}
-            primary={home.finalCta.primary}
-            secondary={home.finalCta.secondary}
-          />
         </Container>
       </Section>
     </PageShell>
