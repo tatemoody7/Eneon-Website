@@ -6,6 +6,7 @@ import {
   SectionHeader,
 } from "@/components/layout";
 import { Button, EyebrowLabel, CertBadge } from "@/components/atoms";
+import { Video, HeroMedia } from "@/components/media";
 import {
   CTABlock,
   CalloutBlock,
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
 
 const aboutStats = [
   { value: "13", unit: "", label: "Projects Deployed" },
-  { value: "250", unit: "MWh", label: "Capacity Online" },
+  { value: "85", unit: "MWh", label: "Capacity Online" },
   { value: "20", unit: "yr", label: "Service Life" },
   { value: "100", unit: "%", label: "Canadian-Engineered" },
 ];
@@ -43,27 +44,56 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      <Section tone="paper" padding="xl" blueprint hairlineBottom>
-        <Container>
-          <div className="flex flex-col gap-10 max-w-5xl">
-            <EyebrowLabel number={1}>About Eneon ES</EyebrowLabel>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-[-0.035em] leading-[0.98] text-[var(--color-navy-500)]">
-              {company.origin.label}.
-            </h1>
-            <p className="max-w-2xl text-lg md:text-xl leading-relaxed text-[var(--color-paper-600)]">
-              {company.description}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Button variant="primary" size="lg" href="/team" trailingIcon>
-                Meet the Team
-              </Button>
-              <Button variant="secondary" size="lg" href="/projects">
-                See Our Projects
-              </Button>
-            </div>
+      <section className="hairline-b">
+        <HeroMedia height="lg" gradient="bottom" grain>
+          <div className="absolute inset-0">
+            <Video
+              alt="Eneon ES field operations and engineering"
+              sources={[
+                { src: "/videos/experience.webm", type: "video/webm" },
+              ]}
+              poster="/videos/particle-wave-poster.jpg"
+              ratio="auto"
+              autoPlay
+              loop
+              muted
+              desktopOnlyAutoplay
+              frameClassName="h-full w-full"
+            />
           </div>
-        </Container>
-      </Section>
+          <div className="relative z-10 h-full flex items-end">
+            <Container>
+              <div className="flex flex-col gap-10 max-w-5xl py-24 md:py-32">
+                <EyebrowLabel number={1} tone="ink">About Eneon ES</EyebrowLabel>
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-[-0.035em] leading-[0.98] text-white">
+                  {company.origin.label}.
+                </h1>
+                <p className="max-w-2xl text-lg md:text-xl leading-relaxed text-white/70">
+                  {company.description}
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    href="/team"
+                    trailingIcon
+                  >
+                    Meet the Team
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    href="/projects"
+                    className="text-white border-white/30 hover:bg-white hover:text-[var(--color-navy-500)]"
+                  >
+                    See Our Projects
+                  </Button>
+                </div>
+              </div>
+            </Container>
+          </div>
+        </HeroMedia>
+      </section>
 
       <Section tone="paper" padding="sm" hairlineBottom>
         <Container>
@@ -112,7 +142,7 @@ export default function AboutPage() {
           <div className="mt-16">
             <LogoStrip
               logos={customerLogos}
-              heading="Deployments across Canada"
+              heading="Deployments across North America"
             />
           </div>
         </Container>

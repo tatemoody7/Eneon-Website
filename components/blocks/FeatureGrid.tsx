@@ -44,7 +44,13 @@ export function FeatureGrid({
         className,
       )}
     >
-      {features.map((f, i) => (
+      {features.map((f, i) => {
+        const isLast = i === features.length - 1;
+        const remainder = features.length % columns;
+        const shouldSpan = isLast && remainder !== 0;
+        const spanCols = shouldSpan ? columns - remainder + 1 : 1;
+
+        return (
         <li
           key={`${f.title}-${i}`}
           className={cn(
@@ -52,6 +58,8 @@ export function FeatureGrid({
             ink
               ? "bg-[var(--color-navy-500)] text-white"
               : "bg-[var(--color-surface-raised)] text-[var(--color-navy-500)]",
+            spanCols === 2 && "lg:col-span-2",
+            spanCols === 3 && "lg:col-span-3",
           )}
         >
           <div className="flex items-center justify-between">
@@ -84,7 +92,8 @@ export function FeatureGrid({
             {f.description}
           </p>
         </li>
-      ))}
+        );
+      })}
     </ul>
   );
 }

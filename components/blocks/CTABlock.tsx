@@ -47,7 +47,7 @@ export function CTABlock({
   return (
     <div
       className={cn(
-        "relative overflow-hidden border p-10 md:p-16 lg:p-24",
+        "relative overflow-hidden border p-8 md:p-12 lg:p-16",
         toneClass,
         blueprint && (ink ? "bg-blueprint-ink" : "bg-blueprint"),
         className,
