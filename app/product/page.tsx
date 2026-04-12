@@ -18,6 +18,7 @@ import {
   CTABlock,
   CalloutBlock,
   Breadcrumbs,
+  ProductAnatomyTabs,
 } from "@/components/blocks";
 import { product, connect } from "@/content/product";
 import { certifications } from "@/content/certifications";
@@ -119,12 +120,29 @@ export default function ProductPage() {
         </Container>
       </Section>
 
+      {/* ─── Anatomy walkthrough ─────────────────────────────────────── */}
+      <Section tone="ink" padding="xl" blueprint hairlineBottom>
+        <Container>
+          <SectionHeader
+            eyebrow="Inside the platform"
+            eyebrowNumber={3}
+            title="Every subsystem, engineered in-house."
+            description="Eight subsystems, one integrated platform. Each cabinet that ships from an Eneon line is commissioned by the same team that designed it."
+            align="start"
+            tone="ink"
+          />
+          <div className="mt-16">
+            <ProductAnatomyTabs tabs={product.anatomy} />
+          </div>
+        </Container>
+      </Section>
+
       {/* ─── Spec table ──────────────────────────────────────────────── */}
       <Section tone="paper" padding="lg" hairlineBottom>
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4 lg:sticky lg:top-28 self-start">
-              <EyebrowLabel number={3}>Technical data</EyebrowLabel>
+              <EyebrowLabel number={4}>Technical data</EyebrowLabel>
               <h2 className="mt-6 text-3xl md:text-5xl font-medium tracking-[-0.03em] leading-[1.05] text-[var(--color-navy-500)]">
                 The numbers behind the platform.
               </h2>
@@ -152,7 +170,7 @@ export default function ProductPage() {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-4">
-              <EyebrowLabel number={4}>Safety & Compliance</EyebrowLabel>
+              <EyebrowLabel number={5}>Safety & Compliance</EyebrowLabel>
               <h3 className="mt-4 text-2xl md:text-3xl font-medium tracking-[-0.02em] text-[var(--color-navy-500)]">
                 Every deployment, code-ready.
               </h3>
@@ -171,7 +189,7 @@ export default function ProductPage() {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5">
-              <EyebrowLabel number={5} tone="ink">
+              <EyebrowLabel number={6} tone="ink">
                 Ships with the system
               </EyebrowLabel>
               <h2 className="mt-6 text-3xl md:text-5xl font-medium tracking-[-0.03em] leading-[1.05] text-white">
@@ -204,20 +222,39 @@ export default function ProductPage() {
         </Container>
       </Section>
 
-      {/* ─── Callout ────────────────────────────────────────────────── */}
+      {/* ─── Callout + experience video ─────────────────────────────── */}
       <Section tone="paper" padding="lg" hairlineBottom>
         <Container>
-          <CalloutBlock
-            tone="default"
-            eyebrow="Field proof"
-            title="Thirteen operational deployments across North America."
-            body="The Eneon BESS is deployed across 13 operational projects — from 21.45 MWh community solar + storage in Massachusetts to 26 MWh AC-coupled storage in Minnesota and commercial peak-shaving batteries across Ontario."
-            footer={
-              <Button variant="ghost" href="/projects" trailingIcon>
-                See the projects
-              </Button>
-            }
-          />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-6">
+              <CalloutBlock
+                tone="default"
+                eyebrow="Field proof"
+                title="Thirteen operational deployments across North America."
+                body="The Eneon BESS is deployed across 13 operational projects — from 21.45 MWh community solar + storage in Massachusetts to 26 MWh AC-coupled storage in Minnesota and commercial peak-shaving batteries across Ontario."
+                footer={
+                  <Button variant="ghost" href="/projects" trailingIcon>
+                    See the projects
+                  </Button>
+                }
+              />
+            </div>
+            <div className="lg:col-span-6">
+              <Video
+                alt="Eneon BESS in the field"
+                sources={[
+                  { src: "/videos/experience.webm", type: "video/webm" },
+                ]}
+                poster="/videos/flexblock-poster.jpg"
+                ratio="16/9"
+                autoPlay
+                loop
+                muted
+                desktopOnlyAutoplay
+                treatment="grade"
+              />
+            </div>
+          </div>
         </Container>
       </Section>
 
