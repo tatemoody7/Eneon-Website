@@ -14,6 +14,10 @@ export type Project = ProjectCardProps & {
   highlights: string[];
   /** Keep slug in sync with the <Link href="/projects/[slug]"> route */
   slug: string;
+  /** Additional project photos for the detail page gallery */
+  gallery?: { src: string; alt: string }[];
+  /** Location map image for the detail page */
+  mapImage?: { src: string; alt: string };
 };
 
 const img = (src: string, alt: string) => ({ src, alt });
@@ -35,6 +39,10 @@ export const projects: Project[] = [
       "Integrated dispatch via Eneon Connect",
     ],
     image: img("/images/projects/project-drone-01.jpg", "Freetown Massachusetts solar + storage site, aerial view"),
+    gallery: [
+      img("/images/projects/project-10.webp", "BESS enclosure on-site at Freetown"),
+      img("/images/projects/project-12.webp", "System commissioning at Freetown project"),
+    ],
   },
   {
     slug: "solar-storage-lyon-county",
@@ -52,6 +60,10 @@ export const projects: Project[] = [
       "Cold-climate thermal management",
     ],
     image: img("/images/projects/project-m-01.webp", "Lyon County Minnesota AC solar + storage"),
+    gallery: [
+      img("/images/projects/project-13.webp", "Lyon County storage installation progress"),
+      img("/images/projects/project-14.webp", "Lyon County BESS enclosures in field"),
+    ],
   },
   {
     slug: "solar-storage-beardstown",
@@ -86,6 +98,7 @@ export const projects: Project[] = [
       "Containerized, augmentation-ready platform",
     ],
     image: img("/images/projects/project-nr-01.webp", "Oregon Illinois solar + storage deployment"),
+    mapImage: img("/images/projects/map-project-08.png", "Oregon Illinois project location map"),
   },
   {
     slug: "solar-storage-southwick",
@@ -103,6 +116,10 @@ export const projects: Project[] = [
       "Long-duration dispatch profile",
     ],
     image: img("/images/projects/project-p5.jpg", "Southwick Massachusetts solar + storage project"),
+    mapImage: img("/images/projects/map-project-05.png", "Southwick Massachusetts project location map"),
+    gallery: [
+      img("/images/projects/project-05.png", "Southwick BESS site layout"),
+    ],
   },
   {
     slug: "solar-storage-needham",
@@ -237,6 +254,11 @@ export const projects: Project[] = [
       "Harsh-climate thermal management",
     ],
     image: img("/images/projects/project-img-1350.jpg", "Community grid resiliency battery in Waterton Alberta"),
+    mapImage: img("/images/projects/map-project-17.png", "Waterton Alberta community grid project location map"),
+    gallery: [
+      img("/images/projects/project-uc.jpg", "BESS units at the Waterton community grid site"),
+      img("/images/projects/project-f01.png", "Community grid resiliency system installation"),
+    ],
   },
 ];
 

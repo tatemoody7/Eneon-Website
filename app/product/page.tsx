@@ -10,7 +10,7 @@ import {
   EyebrowLabel,
   CertBadge,
 } from "@/components/atoms";
-import { Video } from "@/components/media";
+import { Video, Image } from "@/components/media";
 import {
   StatBlock,
   FeatureGrid,
@@ -165,12 +165,53 @@ export default function ProductPage() {
         </Container>
       </Section>
 
+      {/* ─── Engineering drawings ─────────────────────────────────── */}
+      <Section tone="raised" padding="lg" hairlineBottom>
+        <Container>
+          <SectionHeader
+            eyebrow="Engineering"
+            eyebrowNumber={5}
+            title="Precision from blueprint to site."
+            description="System architecture and load estimation data from the FlexBlock engineering library."
+            align="start"
+          />
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Image
+              src="/images/product/blueprints/flexblock-blueprint.png"
+              alt="FlexBlock BESS enclosure blueprint — system layout and dimensions"
+              ratio="16/9"
+              treatment="tinted"
+              caption="FlexBlock enclosure blueprint — general arrangement"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+            <div className="grid grid-rows-2 gap-6">
+              <Image
+                src="/images/product/blueprints/load-estimation-fig4-1.jpeg"
+                alt="FlexBlock load estimation figure 4.1 — site power profile"
+                ratio="16/9"
+                treatment="tinted"
+                caption="Load estimation — site power profile (Fig. 4.1)"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <Image
+                src="/images/product/blueprints/load-estimation-fig4-6.jpeg"
+                alt="FlexBlock load estimation figure 4.6 — dispatch schedule"
+                ratio="16/9"
+                treatment="tinted"
+                caption="Load estimation — dispatch schedule (Fig. 4.6)"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       {/* ─── Certifications ─────────────────────────────────────────── */}
-      <Section tone="raised" padding="md" hairlineBottom>
+      <Section tone="paper" padding="md" hairlineBottom>
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-4">
-              <EyebrowLabel number={5}>Safety & Compliance</EyebrowLabel>
+              <EyebrowLabel number={6}>Safety & Compliance</EyebrowLabel>
               <h3 className="mt-4 text-2xl md:text-3xl font-medium tracking-[-0.02em] text-[var(--color-navy-500)]">
                 Every deployment, code-ready.
               </h3>
@@ -189,7 +230,7 @@ export default function ProductPage() {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5">
-              <EyebrowLabel number={6} tone="ink">
+              <EyebrowLabel number={7} tone="ink">
                 Ships with the system
               </EyebrowLabel>
               <h2 className="mt-6 text-3xl md:text-5xl font-medium tracking-[-0.03em] leading-[1.05] text-white">
