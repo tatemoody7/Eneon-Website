@@ -1,9 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { Inter_Tight, JetBrains_Mono, Sora } from "next/font/google";
 import "./globals.css";
 
 const interTight = Inter_Tight({
   variable: "--font-inter-tight",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700"],
@@ -69,7 +76,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${interTight.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${interTight.variable} ${sora.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[var(--color-surface-base)] text-[var(--color-navy-500)]">
         {children}

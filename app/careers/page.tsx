@@ -120,11 +120,10 @@ export default function CareersPage() {
         </Container>
       </Section>
 
-      <Section tone="paper" padding="lg">
+      <Section tone="raised" padding="lg">
         <Container>
           <CTABlock
-            tone="ink"
-            blueprint
+            tone="default"
             eyebrow="Not sure?"
             title="Think you'd fit but don't see a role?"
             description="Send us an intro and a CV. We read every message."

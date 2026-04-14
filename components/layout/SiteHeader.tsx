@@ -23,11 +23,11 @@ export function SiteHeader() {
 
       <header className="sticky top-0 z-30 bg-[var(--color-surface-base)]/90 backdrop-blur-md hairline-b">
         <Container width="wide">
-          <div className="flex h-16 items-center justify-between gap-6 md:h-20">
+          <div className="flex h-16 items-center justify-between gap-6 lg:h-20">
             <Wordmark size="md" />
 
             {/* Desktop nav */}
-            <nav aria-label="Primary" className="hidden md:block">
+            <nav aria-label="Primary" className="hidden lg:block">
               <ul className="flex items-center gap-1">
                 {primaryNav.map((group) => (
                   <li key={group.label} className="relative group">
@@ -71,7 +71,7 @@ export function SiteHeader() {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-2">
               <Button variant="secondary" size="sm" href="/contact">
                 Contact
               </Button>

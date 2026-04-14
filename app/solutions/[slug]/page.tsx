@@ -244,11 +244,10 @@ export default async function SolutionPage({
       )}
 
       {/* ─── Final CTA ──────────────────────────────────────────────── */}
-      <Section tone="paper" padding="lg">
+      <Section tone="raised" padding="lg">
         <Container>
           <CTABlock
-            tone="ink"
-            blueprint
+            tone="default"
             eyebrow={solution.label}
             title={`Tell us about your ${solution.label.toLowerCase()} project.`}
             description={`${solution.description} — ${solution.audience}. An Eneon engineer will respond within one business day.`}

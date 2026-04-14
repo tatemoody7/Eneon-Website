@@ -52,6 +52,11 @@ export const primaryNav: NavGroup[] = [
         href: "/solutions/commercial",
         description: "Behind-the-meter storage",
       },
+      {
+        label: "Solar + Storage",
+        href: "/solutions/solar-storage",
+        description: "Firm, dispatchable solar",
+      },
     ],
   },
   {
@@ -93,6 +98,7 @@ export const footerNav: { heading: string; links: NavLink[] }[] = [
       { label: "Microgrids", href: "/solutions/microgrids" },
       { label: "Utility", href: "/solutions/utility" },
       { label: "Commercial & Industrial", href: "/solutions/commercial" },
+      { label: "Solar + Storage", href: "/solutions/solar-storage" },
     ],
   },
   {
@@ -114,9 +120,9 @@ export const footerNav: { heading: string; links: NavLink[] }[] = [
 ];
 
 export const legalNav: NavLink[] = [
-  { label: "Privacy", href: "/legal/privacy" },
-  { label: "Terms", href: "/legal/terms" },
-  { label: "Accessibility", href: "/legal/accessibility" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+  { label: "Accessibility", href: "/accessibility" },
 ];
 
 export const socialNav: NavLink[] = [

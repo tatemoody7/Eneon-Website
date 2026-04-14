@@ -92,11 +92,10 @@ export default function SolutionsIndexPage() {
       </Section>
 
       {/* ─── Final CTA ──────────────────────────────────────────────── */}
-      <Section tone="paper" padding="lg" hairlineTop>
+      <Section tone="raised" padding="lg" hairlineTop>
         <Container>
           <CTABlock
-            tone="ink"
-            blueprint
+            tone="default"
             eyebrow="Need help scoping?"
             title="Not sure which solution fits?"
             description="Tell us your application and we'll route you to the right engineer — usually within one business day."

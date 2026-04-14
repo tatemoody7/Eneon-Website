@@ -107,11 +107,10 @@ export default function SizingToolPage() {
         </Container>
       </Section>
 
-      <Section tone="paper" padding="lg">
+      <Section tone="raised" padding="lg">
         <Container>
           <CTABlock
-            tone="ink"
-            blueprint
+            tone="default"
             eyebrow="In the meantime"
             title="Let our engineers size it for you."
             description="Tell us about your project and we'll walk you through the numbers in a 30-minute call."

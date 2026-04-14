@@ -281,11 +281,10 @@ export default async function ProjectCaseStudyPage({
       )}
 
       {/* ─── Final CTA ──────────────────────────────────────────────── */}
-      <Section tone="paper" padding="lg">
+      <Section tone="raised" padding="lg">
         <Container>
           <CTABlock
-            tone="ink"
-            blueprint
+            tone="default"
             eyebrow="Your project"
             title="Have a similar site?"
             description="Tell us the location and load profile — an Eneon engineer will respond within one business day."

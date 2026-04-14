@@ -65,17 +65,17 @@ export default function TeamPage() {
                 name={m.name}
                 title={m.title}
                 department={m.department}
+                photo={m.photo}
               />
             ))}
           </div>
         </Container>
       </Section>
 
-      <Section tone="paper" padding="lg">
+      <Section tone="raised" padding="lg">
         <Container>
           <CTABlock
-            tone="ink"
-            blueprint
+            tone="default"
             eyebrow="Join us"
             title="Engineer for the 20-year view, not the quarterly demo."
             description="We build systems for sites where a truck roll costs a week. That discipline shows up in every decision we make — from cell chemistry to cable routing. If you care about doing storage right — not fast — we'd love to hear from you."

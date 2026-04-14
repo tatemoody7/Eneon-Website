@@ -47,7 +47,7 @@ export function Wordmark({
         className={cn(toneInk && "brightness-0 invert")}
       />
       <span className={cn("h-4 w-px", divider)} aria-hidden />
-      <span className={cn("label-mono", colorDim)}>ES</span>
+      <span className={cn("label-mono", colorDim)}>Eneon ES</span>
     </span>
   );
 

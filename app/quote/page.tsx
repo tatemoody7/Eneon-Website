@@ -25,7 +25,7 @@ export default function QuotePage() {
         </Container>
       </Section>
 
-      <Section tone="paper" padding="xl" blueprint hairlineBottom>
+      <Section tone="raised" padding="xl" blueprint hairlineBottom>
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div className="lg:col-span-5 flex flex-col gap-10 lg:sticky lg:top-28 self-start">

@@ -8,6 +8,7 @@ import {
   SectionHeader,
 } from "@/components/layout";
 import { EyebrowLabel, Icon, Tag } from "@/components/atoms";
+import { Image } from "@/components/media";
 import { CTABlock, Breadcrumbs } from "@/components/blocks";
 import { insights } from "@/content/insights";
 
@@ -69,24 +70,34 @@ export default function InsightsIndexPage() {
                   className="group/row block hairline-t last:hairline-b py-10 md:py-12 transition-colors duration-[var(--duration-base)] ease-[var(--ease-precision)] hover:bg-[var(--color-surface-raised)]"
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                    <div className="lg:col-span-1">
-                      <EyebrowLabel number={i + 1}>Post</EyebrowLabel>
-                    </div>
-                    <div className="lg:col-span-2">
-                      <Tag tone="default">{post.category}</Tag>
-                    </div>
-                    <div className="lg:col-span-6 flex flex-col gap-3">
+                    {post.cover && (
+                      <div className="lg:col-span-3">
+                        <Image
+                          src={post.cover.src}
+                          alt={post.cover.alt}
+                          ratio="16/9"
+                          treatment="ink-wash"
+                          fill
+                          sizes="(min-width: 1024px) 25vw, 100vw"
+                        />
+                      </div>
+                    )}
+                    <div className={post.cover ? "lg:col-span-6" : "lg:col-span-9"}>
+                      <div className="flex items-center gap-3 mb-3">
+                        <Tag tone="default">{post.category}</Tag>
+                        <span className="label-mono text-[var(--color-paper-500)]">
+                          {formatDate(post.date)} · {post.readingTime} min
+                        </span>
+                      </div>
                       <h2 className="text-2xl md:text-4xl font-medium tracking-[-0.025em] leading-[1.1] text-[var(--color-navy-500)] group-hover/row:text-[var(--color-accent-700)] transition-colors duration-[var(--duration-base)] ease-[var(--ease-precision)]">
                         {post.title}
                       </h2>
-                      <p className="text-base md:text-lg leading-relaxed text-[var(--color-paper-600)] max-w-2xl">
+                      <p className="mt-3 text-base md:text-lg leading-relaxed text-[var(--color-paper-600)] max-w-2xl">
                         {post.summary}
                       </p>
                     </div>
-                    <div className="lg:col-span-3 flex flex-col lg:items-end gap-2 label-mono text-[var(--color-paper-500)]">
-                      <span>{formatDate(post.date)}</span>
-                      <span>{post.readingTime} min read</span>
-                      <span className="inline-flex items-center gap-2 text-[var(--color-navy-500)]">
+                    <div className="lg:col-span-3 flex flex-col lg:items-end gap-2">
+                      <span className="inline-flex items-center gap-2 label-mono text-[var(--color-navy-500)]">
                         Read
                         <Icon icon={ArrowUpRight} size="sm" />
                       </span>
@@ -99,11 +110,10 @@ export default function InsightsIndexPage() {
         </Container>
       </Section>
 
-      <Section tone="paper" padding="lg" hairlineTop>
+      <Section tone="raised" padding="lg" hairlineTop>
         <Container>
           <CTABlock
-            tone="ink"
-            blueprint
+            tone="default"
             eyebrow="Stay in the loop"
             title="New articles, field notes, and whitepapers."
             description="Get in touch if you'd like to be notified when new engineering content is published."

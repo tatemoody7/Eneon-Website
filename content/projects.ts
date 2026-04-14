@@ -31,6 +31,8 @@ export const projects: Project[] = [
     powerMw: 5.0,
     type: "Utility",
     status: "Operational",
+    year: 2023,
+    commissioned: "2023",
     summary:
       "21.45 MWh solar-plus-storage system paired with a community solar array in southeastern Massachusetts — one of the largest DC-coupled deployments in the Eneon fleet.",
     highlights: [
@@ -52,6 +54,8 @@ export const projects: Project[] = [
     powerMw: 6.0,
     type: "Utility",
     status: "Operational",
+    year: 2024,
+    commissioned: "2024",
     summary:
       "26 MWh AC-coupled solar + battery deployment serving Lyon County, Minnesota — Eneon's largest single-site storage installation to date.",
     highlights: [
@@ -73,6 +77,8 @@ export const projects: Project[] = [
     powerMw: 3.0,
     type: "Utility",
     status: "Operational",
+    year: 2023,
+    commissioned: "2023",
     summary:
       "11.9 MWh community-scale solar-plus-storage project in Beardstown, Illinois. Firms up midday solar output and extends delivery into the evening peak.",
     highlights: [
@@ -90,6 +96,8 @@ export const projects: Project[] = [
     powerMw: 1.9,
     type: "Utility",
     status: "Operational",
+    year: 2022,
+    commissioned: "2022",
     summary:
       "6.8 MWh / 1.9 MW solar-plus-storage deployment in Ameren territory, Oregon, Illinois. Designed for continuous midday shifting and grid-support services.",
     highlights: [
@@ -108,6 +116,8 @@ export const projects: Project[] = [
     powerMw: 1.5,
     type: "Utility",
     status: "Operational",
+    year: 2021,
+    commissioned: "2021",
     summary:
       "5.45 MWh solar + battery storage system serving Southwick, Massachusetts. Delivered under the state SMART program with integrated PV.",
     highlights: [
@@ -129,6 +139,8 @@ export const projects: Project[] = [
     powerMw: 0.25,
     type: "Commercial",
     status: "Operational",
+    year: 2020,
+    commissioned: "2020",
     summary:
       "0.68 MWh small-footprint solar-plus-storage installation serving a Needham, Massachusetts customer under the SMART program.",
     highlights: [
@@ -146,6 +158,8 @@ export const projects: Project[] = [
     powerMw: 0.5,
     type: "Commercial",
     status: "Operational",
+    year: 2021,
+    commissioned: "2021",
     summary:
       "1,000 kWh front-of-the-meter AC solar + storage installation for a Methuen, Massachusetts host. AC coupling enables flexible grid-support dispatch.",
     highlights: [
@@ -163,6 +177,8 @@ export const projects: Project[] = [
     powerMw: 1.0,
     type: "Commercial",
     status: "Operational",
+    year: 2022,
+    commissioned: "2022",
     summary:
       "2,500 kWh front-of-the-meter AC solar + storage system serving Norfolk, Massachusetts. Built to the same containerized Eneon BESS platform used across the fleet.",
     highlights: [
@@ -180,6 +196,8 @@ export const projects: Project[] = [
     powerMw: 0.5,
     type: "Commercial",
     status: "Operational",
+    year: 2019,
+    commissioned: "2019",
     summary:
       "2,500 kWh behind-the-meter storage system deployed for a Mississauga industrial host to shave Ontario's Global Adjustment (Class A) peak hours.",
     highlights: [
@@ -197,6 +215,8 @@ export const projects: Project[] = [
     powerMw: 0.3,
     type: "Commercial",
     status: "Operational",
+    year: 2018,
+    commissioned: "2018",
     summary:
       "1,250 kWh behind-the-meter battery for a second Mississauga commercial host. Designed to reduce Global Adjustment exposure through Class A peak avoidance.",
     highlights: [
@@ -214,6 +234,8 @@ export const projects: Project[] = [
     powerMw: 0.3,
     type: "Commercial",
     status: "Operational",
+    year: 2018,
+    commissioned: "2018",
     summary:
       "1,250 kWh peak-shaving battery for an Etobicoke industrial customer participating in Ontario's Global Adjustment program.",
     highlights: [
@@ -229,6 +251,8 @@ export const projects: Project[] = [
     location: "Mitchell, ON",
     type: "Commercial",
     status: "Operational",
+    year: 2019,
+    commissioned: "2019",
     summary:
       "Peak-shaving battery deployment for a Mitchell, Ontario host. Reduces Global Adjustment exposure through automated Class A peak-hour dispatch.",
     highlights: [
@@ -246,6 +270,8 @@ export const projects: Project[] = [
     powerMw: 1.0,
     type: "Microgrid",
     status: "Operational",
+    year: 2022,
+    commissioned: "2022",
     summary:
       "5,200 kWh community grid-resiliency battery designed to keep critical loads online during outages. A cornerstone deployment of Eneon's microgrid practice.",
     highlights: [
