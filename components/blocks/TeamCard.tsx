@@ -36,7 +36,7 @@ export function TeamCard({
           alt={photo.alt}
           src={photo.src}
           ratio="3/2"
-          treatment="ink-wash"
+          treatment="none"
           fill
           sizes="(min-width: 768px) 25vw, 50vw"
           frameClassName="aspect-[3/4]"

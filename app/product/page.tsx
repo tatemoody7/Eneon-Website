@@ -12,7 +12,6 @@ import {
 } from "@/components/atoms";
 import { Video, Image } from "@/components/media";
 import {
-  StatBlock,
   FeatureGrid,
   SpecTable,
   CTABlock,
@@ -20,6 +19,7 @@ import {
   Breadcrumbs,
   ProductAnatomyTabs,
 } from "@/components/blocks";
+import { FadeIn, AnimatedStatBlock, HeroReveal } from "@/components/motion";
 import { product, connect } from "@/content/product";
 import { certifications } from "@/content/certifications";
 
@@ -48,7 +48,7 @@ export default function ProductPage() {
       <Section tone="paper" padding="xl" blueprint hairlineBottom>
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-7 flex flex-col gap-10">
+            <HeroReveal className="lg:col-span-7 flex flex-col gap-10">
               <EyebrowLabel number={1}>The Platform</EyebrowLabel>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-[-0.035em] leading-[0.98] text-[var(--color-navy-500)]">
                 {product.name}.<br />
@@ -69,71 +69,81 @@ export default function ProductPage() {
                   Size my System
                 </Button>
               </div>
-            </div>
+            </HeroReveal>
             <div className="lg:col-span-5">
-              <Video
-                alt="Eneon BESS FlexBlock modular battery architecture animation"
-                sources={[
-                  { src: "/videos/flexblock.webm", type: "video/webm" },
-                  { src: "/videos/flexblock.mp4", type: "video/mp4" },
-                ]}
-                poster="/videos/flexblock-poster.jpg"
-                ratio="3/2"
-                autoPlay
-                loop
-                muted
-                desktopOnlyAutoplay
-                treatment="ink-wash"
-              />
+              <FadeIn delay={0.3} direction="right">
+                <Video
+                  alt="Eneon BESS FlexBlock modular battery architecture animation"
+                  sources={[
+                    { src: "/videos/flexblock.webm", type: "video/webm" },
+                    { src: "/videos/flexblock.mp4", type: "video/mp4" },
+                  ]}
+                  poster="/videos/flexblock-poster.jpg"
+                  ratio="3/2"
+                  autoPlay
+                  loop
+                  muted
+                  desktopOnlyAutoplay
+                  treatment="ink-wash"
+                />
+              </FadeIn>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* ─── Hero stats ──────────────────────────────────────────────── */}
+      {/* ─── Hero stats (animated counters) ────────────────────────── */}
       <Section tone="paper" padding="sm" hairlineBottom>
         <Container>
-          <StatBlock stats={product.heroStats} columns={4} size="xl" />
+          <AnimatedStatBlock stats={product.heroStats} columns={4} size="xl" />
         </Container>
       </Section>
 
       {/* ─── 4 Pillars ──────────────────────────────────────────────── */}
       <Section tone="raised" padding="lg" hairlineBottom>
         <Container>
-          <SectionHeader
-            eyebrow="Engineering pillars"
-            eyebrowNumber={2}
-            title="Four principles, one platform."
-            description="Every Eneon BESS deployment is built on the same engineering commitments — from Massachusetts community solar to Ontario Global Adjustment."
-            align="start"
-          />
-          <div className="mt-16">
-            <FeatureGrid
-              features={product.pillars.map((p) => ({
-                number: p.number,
-                title: p.title,
-                description: p.description,
-              }))}
-              columns={4}
+          <FadeIn>
+            <SectionHeader
+              eyebrow="Engineering pillars"
+              eyebrowNumber={2}
+              title="Four principles, one platform."
+              description="Every Eneon BESS deployment is built on the same engineering commitments — from Massachusetts community solar to Ontario Global Adjustment."
+              align="start"
             />
-          </div>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <div className="mt-16">
+              <FeatureGrid
+                features={product.pillars.map((p) => ({
+                  number: p.number,
+                  title: p.title,
+                  description: p.description,
+                }))}
+                columns={4}
+              />
+            </div>
+          </FadeIn>
         </Container>
       </Section>
 
       {/* ─── Anatomy walkthrough ─────────────────────────────────────── */}
       <Section tone="ink" padding="xl" blueprint hairlineBottom>
         <Container>
-          <SectionHeader
-            eyebrow="Inside the platform"
-            eyebrowNumber={3}
-            title="Every subsystem, engineered in-house."
-            description="Eight subsystems, one integrated platform. Each cabinet that ships from an Eneon line is commissioned by the same team that designed it."
-            align="start"
-            tone="ink"
-          />
-          <div className="mt-16">
-            <ProductAnatomyTabs tabs={product.anatomy} />
-          </div>
+          <FadeIn>
+            <SectionHeader
+              eyebrow="Inside the platform"
+              eyebrowNumber={3}
+              title="Every subsystem, engineered in-house."
+              description="Eight subsystems, one integrated platform. Each cabinet that ships from an Eneon line is commissioned by the same team that designed it."
+              align="start"
+              tone="ink"
+            />
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <div className="mt-16">
+              <ProductAnatomyTabs tabs={product.anatomy} />
+            </div>
+          </FadeIn>
         </Container>
       </Section>
 
@@ -142,24 +152,28 @@ export default function ProductPage() {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4 lg:sticky lg:top-28 self-start">
-              <EyebrowLabel number={4}>Technical data</EyebrowLabel>
-              <h2 className="mt-6 text-3xl md:text-5xl font-medium tracking-[-0.03em] leading-[1.05] text-[var(--color-navy-500)]">
-                The numbers behind the platform.
-              </h2>
-              <p className="mt-6 text-lg leading-relaxed text-[var(--color-paper-600)]">
-                Complete specifications for the containerized Eneon BESS platform. Contact engineering for a full data sheet tailored to your site conditions.
-              </p>
-              <Button
-                variant="ghost"
-                href="/quote"
-                trailingIcon
-                className="mt-8 self-start"
-              >
-                Download Data Sheet
-              </Button>
+              <FadeIn direction="left">
+                <EyebrowLabel number={4}>Technical data</EyebrowLabel>
+                <h2 className="mt-6 text-3xl md:text-5xl font-medium tracking-[-0.03em] leading-[1.05] text-[var(--color-navy-500)]">
+                  The numbers behind the platform.
+                </h2>
+                <p className="mt-6 text-lg leading-relaxed text-[var(--color-paper-600)]">
+                  Complete specifications for the containerized Eneon BESS platform. Contact engineering for a full data sheet tailored to your site conditions.
+                </p>
+                <Button
+                  variant="ghost"
+                  href="/quote"
+                  trailingIcon
+                  className="mt-8 self-start"
+                >
+                  Download Data Sheet
+                </Button>
+              </FadeIn>
             </div>
             <div className="lg:col-span-8">
-              <SpecTable groups={product.specs} />
+              <FadeIn delay={0.1}>
+                <SpecTable groups={product.specs} />
+              </FadeIn>
             </div>
           </div>
         </Container>
@@ -168,149 +182,160 @@ export default function ProductPage() {
       {/* ─── Engineering drawings ─────────────────────────────────── */}
       <Section tone="raised" padding="lg" hairlineBottom>
         <Container>
-          <SectionHeader
-            eyebrow="Engineering"
-            eyebrowNumber={5}
-            title="Precision from blueprint to site."
-            description="System architecture and load estimation data from the FlexBlock engineering library."
-            align="start"
-          />
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <Image
-              src="/images/product/blueprints/flexblock-blueprint.png"
-              alt="FlexBlock BESS enclosure blueprint — system layout and dimensions"
-              ratio="16/9"
-              treatment="tinted"
-              caption="FlexBlock enclosure blueprint — general arrangement"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+          <FadeIn>
+            <SectionHeader
+              eyebrow="Engineering"
+              eyebrowNumber={5}
+              title="Precision from blueprint to site."
+              description="System architecture and load estimation data from the FlexBlock engineering library."
+              align="start"
             />
-            <div className="grid grid-rows-2 gap-6">
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
               <Image
-                src="/images/product/blueprints/load-estimation-fig4-1.jpeg"
-                alt="FlexBlock load estimation figure 4.1 — site power profile"
+                src="/images/product/blueprints/flexblock-blueprint.png"
+                alt="FlexBlock BESS enclosure blueprint — system layout and dimensions"
                 ratio="16/9"
                 treatment="tinted"
-                caption="Load estimation — site power profile (Fig. 4.1)"
+                caption="FlexBlock enclosure blueprint — general arrangement"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <Image
-                src="/images/product/blueprints/load-estimation-fig4-6.jpeg"
-                alt="FlexBlock load estimation figure 4.6 — dispatch schedule"
-                ratio="16/9"
-                treatment="tinted"
-                caption="Load estimation — dispatch schedule (Fig. 4.6)"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
+              <div className="grid grid-rows-2 gap-6">
+                <Image
+                  src="/images/product/blueprints/load-estimation-fig4-1.jpeg"
+                  alt="FlexBlock load estimation figure 4.1 — site power profile"
+                  ratio="16/9"
+                  treatment="tinted"
+                  caption="Load estimation — site power profile (Fig. 4.1)"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <Image
+                  src="/images/product/blueprints/load-estimation-fig4-6.jpeg"
+                  alt="FlexBlock load estimation figure 4.6 — dispatch schedule"
+                  ratio="16/9"
+                  treatment="tinted"
+                  caption="Load estimation — dispatch schedule (Fig. 4.6)"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
             </div>
-          </div>
+          </FadeIn>
         </Container>
       </Section>
 
       {/* ─── Certifications ─────────────────────────────────────────── */}
       <Section tone="paper" padding="md" hairlineBottom>
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-4">
-              <EyebrowLabel number={6}>Safety & Compliance</EyebrowLabel>
-              <h3 className="mt-4 text-2xl md:text-3xl font-medium tracking-[-0.02em] text-[var(--color-navy-500)]">
-                Every deployment, code-ready.
-              </h3>
+          <FadeIn>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-4">
+                <EyebrowLabel number={6}>Safety & Compliance</EyebrowLabel>
+                <h3 className="mt-4 text-2xl md:text-3xl font-medium tracking-[-0.02em] text-[var(--color-navy-500)]">
+                  Every deployment, code-ready.
+                </h3>
+              </div>
+              <div className="lg:col-span-8 flex flex-wrap gap-3">
+                {certifications.map((c) => (
+                  <CertBadge key={c.code} code={c.code} label={c.category} />
+                ))}
+              </div>
             </div>
-            <div className="lg:col-span-8 flex flex-wrap gap-3">
-              {certifications.map((c) => (
-                <CertBadge key={c.code} code={c.code} label={c.category} />
-              ))}
-            </div>
-          </div>
+          </FadeIn>
         </Container>
       </Section>
 
       {/* ─── Connect teaser ──────────────────────────────────────────── */}
       <Section tone="ink" padding="lg" blueprint hairlineBottom>
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-5">
-              <EyebrowLabel number={7} tone="ink">
-                Ships with the system
-              </EyebrowLabel>
-              <h2 className="mt-6 text-3xl md:text-5xl font-medium tracking-[-0.03em] leading-[1.05] text-white">
-                {connect.name}. {connect.tagline}
-              </h2>
-              <p className="mt-6 text-lg leading-relaxed text-white/70 max-w-md">
-                {connect.description}
-              </p>
-              <Button
-                variant="secondary"
-                href="/connect"
-                trailingIcon
-                className="mt-8 text-white border-white/30 hover:bg-white hover:text-[var(--color-navy-500)]"
-              >
-                Inside Eneon Connect
-              </Button>
+          <FadeIn>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+              <div className="lg:col-span-5">
+                <EyebrowLabel number={7} tone="ink">
+                  Ships with the system
+                </EyebrowLabel>
+                <h2 className="mt-6 text-3xl md:text-5xl font-medium tracking-[-0.03em] leading-[1.05] text-white">
+                  {connect.name}. {connect.tagline}
+                </h2>
+                <p className="mt-6 text-lg leading-relaxed text-white/70 max-w-md">
+                  {connect.description}
+                </p>
+                <Button
+                  variant="secondary"
+                  href="/connect"
+                  trailingIcon
+                  className="mt-8 text-white border-white/30 hover:bg-white hover:text-[var(--color-navy-500)]"
+                >
+                  Inside Eneon Connect
+                </Button>
+              </div>
+              <div className="lg:col-span-7">
+                <FeatureGrid
+                  features={connect.modules.map((m) => ({
+                    number: m.number,
+                    title: m.title,
+                    description: m.description,
+                  }))}
+                  columns={2}
+                  tone="ink"
+                />
+              </div>
             </div>
-            <div className="lg:col-span-7">
-              <FeatureGrid
-                features={connect.modules.map((m) => ({
-                  number: m.number,
-                  title: m.title,
-                  description: m.description,
-                }))}
-                columns={2}
-                tone="ink"
-              />
-            </div>
-          </div>
+          </FadeIn>
         </Container>
       </Section>
 
       {/* ─── Callout + experience video ─────────────────────────────── */}
       <Section tone="paper" padding="lg" hairlineBottom>
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6">
-              <CalloutBlock
-                tone="default"
-                eyebrow="Field proof"
-                title="Thirteen operational deployments across North America."
-                body="The Eneon BESS is deployed across 13 operational projects — from 21.45 MWh community solar + storage in Massachusetts to 26 MWh AC-coupled storage in Minnesota and commercial peak-shaving batteries across Ontario."
-                footer={
-                  <Button variant="ghost" href="/projects" trailingIcon>
-                    See the projects
-                  </Button>
-                }
-              />
+          <FadeIn>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-6">
+                <CalloutBlock
+                  tone="default"
+                  eyebrow="Field proof"
+                  title="Thirteen operational deployments across North America."
+                  body="The Eneon BESS is deployed across 13 operational projects — from 21.45 MWh community solar + storage in Massachusetts to 26 MWh AC-coupled storage in Minnesota and commercial peak-shaving batteries across Ontario."
+                  footer={
+                    <Button variant="ghost" href="/projects" trailingIcon>
+                      See the projects
+                    </Button>
+                  }
+                />
+              </div>
+              <div className="lg:col-span-6">
+                <Video
+                  alt="Eneon BESS in the field"
+                  sources={[
+                    { src: "/videos/experience.webm", type: "video/webm" },
+                  ]}
+                  poster="/videos/flexblock-poster.jpg"
+                  ratio="16/9"
+                  autoPlay
+                  loop
+                  muted
+                  desktopOnlyAutoplay
+                  treatment="grade"
+                />
+              </div>
             </div>
-            <div className="lg:col-span-6">
-              <Video
-                alt="Eneon BESS in the field"
-                sources={[
-                  { src: "/videos/experience.webm", type: "video/webm" },
-                ]}
-                poster="/videos/flexblock-poster.jpg"
-                ratio="16/9"
-                autoPlay
-                loop
-                muted
-                desktopOnlyAutoplay
-                treatment="grade"
-              />
-            </div>
-          </div>
+          </FadeIn>
         </Container>
       </Section>
 
-      {/* ─── Final CTA ──────────────────────────────────────────────── */}
-      <Section tone="paper" padding="lg">
+      {/* ─── Final CTA (default tone to avoid double navy) ────────── */}
+      <Section tone="raised" padding="lg">
         <Container>
-          <CTABlock
-            tone="ink"
-            blueprint
-            eyebrow="Next step"
-            title="Let's spec your project."
-            description="Send us your application, location, and load profile. An Eneon engineer will respond within one business day."
-            primary={{ label: "Request a Quote", href: "/quote" }}
-            secondary={{ label: "Size my System", href: "/sizing-tool" }}
-          />
+          <FadeIn>
+            <CTABlock
+              tone="default"
+              eyebrow="Next step"
+              title="Download the data sheet."
+              description="Send us your application, location, and load profile. An Eneon engineer will respond within one business day."
+              primary={{ label: "Request a Quote", href: "/quote" }}
+              secondary={{ label: "Size my System", href: "/sizing-tool" }}
+            />
+          </FadeIn>
         </Container>
       </Section>
     </PageShell>

@@ -38,10 +38,10 @@ export function HeroMedia({
   const gradientClass = {
     none: "",
     bottom:
-      "before:absolute before:inset-0 before:bg-gradient-to-t before:from-[var(--color-navy-900)]/85 before:via-[var(--color-navy-900)]/30 before:to-[var(--color-navy-900)]/10 before:pointer-events-none",
-    left: "before:absolute before:inset-0 before:bg-gradient-to-r before:from-[var(--color-navy-900)]/85 before:via-[var(--color-navy-900)]/40 before:to-transparent before:pointer-events-none",
+      "before:absolute before:inset-0 before:z-[1] before:bg-gradient-to-t before:from-[var(--color-navy-900)]/85 before:via-[var(--color-navy-900)]/30 before:to-[var(--color-navy-900)]/10 before:pointer-events-none",
+    left: "before:absolute before:inset-0 before:z-[1] before:bg-gradient-to-r before:from-[var(--color-navy-900)]/85 before:via-[var(--color-navy-900)]/40 before:to-transparent before:pointer-events-none",
     radial:
-      "before:absolute before:inset-0 before:[background-image:radial-gradient(ellipse_at_30%_60%,transparent,rgba(1,6,13,0.75))] before:pointer-events-none",
+      "before:absolute before:inset-0 before:z-[1] before:[background-image:radial-gradient(ellipse_at_30%_60%,transparent,rgba(1,6,13,0.75))] before:pointer-events-none",
   }[gradient];
 
   return (

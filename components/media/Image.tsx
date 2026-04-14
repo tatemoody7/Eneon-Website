@@ -58,6 +58,7 @@ export function Image({
       className={cn(
         "relative overflow-hidden bg-[var(--color-surface-sunken)]",
         ratioClass[ratio],
+        ratio === "auto" && fill && "h-full",
         treatmentOverlay,
         frameClassName,
       )}

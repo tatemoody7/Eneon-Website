@@ -41,7 +41,7 @@ export default function TermsPage() {
         </Container>
       </Section>
 
-      <Section tone="paper" padding="lg">
+      <Section tone="raised" padding="lg">
         <Container width="narrow">
           <article className="flex flex-col gap-10 text-lg leading-relaxed text-[var(--color-navy-500)]">
             <section className="flex flex-col gap-4">

@@ -69,7 +69,7 @@ export function MobileMenu() {
         onClick={() => setOpen((v) => !v)}
         className={cn(
           "inline-flex items-center justify-center",
-          "h-12 w-12 md:hidden",
+          "h-12 w-12 lg:hidden",
           "border border-[var(--line)]",
           "text-[var(--color-navy-500)]",
           "transition-colors duration-[var(--duration-base)] ease-[var(--ease-precision)]",
@@ -85,7 +85,7 @@ export function MobileMenu() {
         aria-hidden
         onClick={() => setOpen(false)}
         className={cn(
-          "fixed inset-0 z-40 bg-[var(--color-navy-900)]/60 backdrop-blur-sm md:hidden",
+          "fixed inset-0 z-40 bg-[var(--color-navy-900)]/60 backdrop-blur-sm lg:hidden",
           "transition-opacity duration-[var(--duration-base)] ease-[var(--ease-precision)]",
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
         )}
@@ -99,7 +99,7 @@ export function MobileMenu() {
         aria-modal="true"
         aria-label="Site navigation"
         className={cn(
-          "fixed inset-y-0 right-0 z-50 w-full max-w-sm md:hidden",
+          "fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm h-dvh lg:hidden",
           "bg-[var(--color-surface-raised)]",
           "border-l border-[var(--line)]",
           "flex flex-col",

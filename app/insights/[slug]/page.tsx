@@ -107,11 +107,10 @@ export default async function InsightPage({
         </Container>
       </Section>
 
-      <Section tone="paper" padding="lg">
+      <Section tone="raised" padding="lg">
         <Container>
           <CTABlock
-            tone="ink"
-            blueprint
+            tone="default"
             eyebrow="More"
             title="Keep reading."
             description="Explore the rest of the Eneon ES Knowledge Hub."

@@ -56,13 +56,11 @@
   --color-surface-sunken: #F4F0E8;
 
   /* ---------- FONTS ----------
-     Söhne Breit is a paid foundry font; until a licensed copy is added via
-     @font-face, the display stack falls back to Inter Tight (loaded via
-     next/font in app/layout.tsx) which shares a similar geometric silhouette.
-     When Söhne Breit is added, drop it in /public/fonts/ and declare it here
-     with `font-display: swap` — then prepend it to --font-display.
+     Sora is the display font — a wide geometric sans that conveys industrial
+     precision. Loaded via next/font in app/layout.tsx. Inter Tight handles
+     body text; JetBrains Mono handles labels and specs.
   */
-  --font-display: var(--font-inter-tight), "Neue Haas Grotesk Display", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), var(--font-inter-tight), "Neue Haas Grotesk Display", ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
@@ -156,18 +154,21 @@ body {
   font-weight: 400;
 }
 
-/* Typographic baseline for display headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  color: var(--color-navy-500);
-}
+/* Typographic baseline for display headings — in @layer base so
+   Tailwind utilities (e.g. text-white) can override the color. */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--color-navy-500);
+  }
 
-/* Tight tracking on very large headings */
-h1 { letter-spacing: -0.035em; }
-h2 { letter-spacing: -0.03em; }
+  /* Tight tracking on very large headings */
+  h1 { letter-spacing: -0.035em; }
+  h2 { letter-spacing: -0.03em; }
+}
 
 ::selection {
   background: var(--color-accent-500);

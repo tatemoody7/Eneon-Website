@@ -237,11 +237,10 @@ export default function ConnectPage() {
       </Section>
 
       {/* ─── Final CTA ──────────────────────────────────────────────── */}
-      <Section tone="paper" padding="lg">
+      <Section tone="raised" padding="lg">
         <Container>
           <CTABlock
-            tone="ink"
-            blueprint
+            tone="default"
             eyebrow="See it live"
             title="Walk through Eneon Connect with an engineer."
             description="We'll show you a live deployment, pulled from a real operational system. One business day turnaround on demo requests."
