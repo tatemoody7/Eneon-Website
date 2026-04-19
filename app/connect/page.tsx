@@ -1,77 +1,23 @@
 import type { Metadata } from "next";
 import {
-  Activity,
-  BellRing,
-  BarChart3,
-  Radio,
-  ShieldCheck,
-  Cloud,
-  Cpu,
-  Gauge,
-} from "lucide-react";
-import {
   PageShell,
   Section,
   Container,
-  SectionHeader,
 } from "@/components/layout";
 import { Button, EyebrowLabel } from "@/components/atoms";
-import { Image, Video, HeroMedia } from "@/components/media";
-import {
-  FeatureGrid,
-  CalloutBlock,
-  CTABlock,
-  Breadcrumbs,
-  StatBlock,
-} from "@/components/blocks";
-import { connect } from "@/content/product";
+import { Breadcrumbs, CTABlock } from "@/components/blocks";
+import { ConnectDashboard } from "@/components/blocks/ConnectDashboard";
+import { FadeIn, HeroReveal } from "@/components/motion";
 
 export const metadata: Metadata = {
-  title: "Eneon Connect — The Software Platform",
+  title: "Eneon Connect — Live BESS Telemetry & Dispatch",
   description:
-    "The software layer that ships with every Eneon BESS. Cell-level telemetry, remote dispatch, analytics, and alerting.",
+    "Cell-level telemetry, 24-hour dispatch, augmentation modeling, and alarm triage — the operator console for every Eneon FlexBlock site.",
 };
-
-const moduleIcons = [Activity, Radio, BarChart3, BellRing];
-
-const integrationFeatures = [
-  {
-    icon: Cloud,
-    title: "Cloud or on-prem",
-    description:
-      "Deploy Eneon Connect as a managed cloud service or inside your own SCADA environment. Same interface, same telemetry, same APIs.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Secure by default",
-    description:
-      "Role-based access, audit logging, encrypted transport, and SSO integration with your existing identity provider.",
-  },
-  {
-    icon: Cpu,
-    title: "EMS-ready",
-    description:
-      "Hand off control to your preferred EMS or run Eneon Connect as the primary controller. Modbus TCP, DNP3, and REST API.",
-  },
-  {
-    icon: Gauge,
-    title: "Cell-level visibility",
-    description:
-      "Every cell, every module, every rack — voltage, temperature, and state-of-charge streamed at full resolution.",
-  },
-];
-
-const telemetryStats = [
-  { value: "1", unit: "sec", label: "Telemetry Resolution" },
-  { value: "100", unit: "%", label: "Cell-Level Coverage" },
-  { value: "24/7", unit: "", label: "Monitored Operation" },
-  { value: "∞", unit: "", label: "Historical Retention" },
-];
 
 export default function ConnectPage() {
   return (
     <PageShell>
-      {/* ─── Breadcrumbs ─────────────────────────────────────────────── */}
       <Section tone="paper" padding="sm" hairlineBottom>
         <Container>
           <Breadcrumbs
@@ -84,169 +30,137 @@ export default function ConnectPage() {
         </Container>
       </Section>
 
-      {/* ─── Hero (ink + video) ──────────────────────────────────────── */}
-      <section className="hairline-b">
-        <HeroMedia height="lg" gradient="bottom" grain>
-          <div className="absolute inset-0">
-            <Video
-              alt="Abstract particle wave visualization"
-              sources={[
-                { src: "/videos/particle-wave.webm", type: "video/webm" },
-                { src: "/videos/particle-wave.mp4", type: "video/mp4" },
-              ]}
-              poster="/videos/particle-wave-poster.jpg"
-              ratio="auto"
-              autoPlay
-              loop
-              muted
-              desktopOnlyAutoplay
-              frameClassName="h-full w-full"
-            />
-          </div>
-          <div className="relative z-10 h-full flex items-end">
-            <Container>
-              <div className="flex flex-col gap-10 max-w-5xl py-24 md:py-32">
-                <EyebrowLabel number={1} tone="ink">
-                  The Software Platform
-                </EyebrowLabel>
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-[-0.035em] leading-[0.98] text-white">
-                  {connect.name}.<br />
-                  {connect.tagline}
-                </h1>
-                <p className="max-w-2xl text-lg md:text-xl leading-relaxed text-white/70">
-                  {connect.description}
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <Button variant="ink" size="lg" href="/quote" trailingIcon>
-                    Request a Demo
-                  </Button>
-                  <Button
-                    variant="secondary"
-                    size="lg"
-                    href="/product"
-                    className="text-white border-white/30 hover:bg-white hover:text-[var(--color-navy-500)]"
-                  >
-                    Back to Product
-                  </Button>
-                </div>
-              </div>
-            </Container>
-          </div>
-        </HeroMedia>
-      </section>
-
-      {/* ─── Telemetry stats ─────────────────────────────────────────── */}
-      <Section tone="ink" padding="sm" hairlineBottom>
+      {/* ─── Hero ─────────────────────────────────────────────────── */}
+      <Section tone="paper" padding="xl" blueprint hairlineBottom>
         <Container>
-          <StatBlock stats={telemetryStats} columns={4} size="xl" tone="ink" />
-        </Container>
-      </Section>
-
-      {/* ─── 4 Modules ──────────────────────────────────────────────── */}
-      <Section tone="paper" padding="lg" hairlineBottom>
-        <Container>
-          <SectionHeader
-            eyebrow="The four modules"
-            eyebrowNumber={2}
-            title="Monitor. Dispatch. Analyze. Alert."
-            description="Four modules that work together as one operational surface. Observable from the cloud, exportable to your stack."
-            align="start"
-          />
-          <div className="mt-16">
-            <FeatureGrid
-              features={connect.modules.map((m, i) => ({
-                icon: moduleIcons[i],
-                title: m.title,
-                description: m.description,
-              }))}
-              columns={4}
-            />
-          </div>
-        </Container>
-      </Section>
-
-      {/* ─── Interface screenshot placeholder ───────────────────────── */}
-      <Section tone="raised" padding="lg" hairlineBottom>
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5 flex flex-col gap-6">
-              <EyebrowLabel number={3}>The interface</EyebrowLabel>
-              <h2 className="text-3xl md:text-5xl font-medium tracking-[-0.03em] leading-[1.05] text-[var(--color-navy-500)]">
-                Every cell. Every moment. One pane of glass.
-              </h2>
-              <p className="text-lg leading-relaxed text-[var(--color-paper-600)] max-w-xl">
-                Eneon Connect streams telemetry from every cell in the system
-                at one-second resolution. Dispatch commands, schedule
-                charge/discharge windows, and hand off to an EMS — all from a
-                single interface.
-              </p>
-              <Button
-                variant="primary"
-                href="/quote"
-                trailingIcon
-                className="self-start mt-2"
-              >
+          <HeroReveal className="flex flex-col gap-10 max-w-5xl">
+            <EyebrowLabel number={1}>Connect / Operator Console</EyebrowLabel>
+            <h1 className="text-5xl md:text-7xl lg:text-[88px] font-medium tracking-[-0.035em] leading-[0.98] text-[var(--color-navy-500)]">
+              Every cell. Every second.
+              <br />
+              <span className="text-[var(--color-paper-600)]">
+                One console.
+              </span>
+            </h1>
+            <p className="max-w-2xl text-lg md:text-xl leading-relaxed text-[var(--color-paper-600)]">
+              Eneon Connect is the software that ships with every FlexBlock
+              site — real-time telemetry, scheduled dispatch, capacity
+              augmentation modeling, and warranty-grade analytics. This is the
+              actual UI your operator sees.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Button href="/quote" variant="primary" trailingIcon>
                 Request a Demo
               </Button>
+              <Button href="/grid-response" variant="secondary">
+                See Grid Response
+              </Button>
             </div>
-            <div className="lg:col-span-7">
-              <Image
-                alt="Eneon Connect intelligent controls interface"
-                src="/images/product/intelligent-controls.webp"
-                ratio="16/9"
-                treatment="ink-wash"
-                fill
-                sizes="(min-width: 1024px) 55vw, 100vw"
-              />
-            </div>
-          </div>
+          </HeroReveal>
         </Container>
       </Section>
 
-      {/* ─── Integration features ────────────────────────────────────── */}
-      <Section tone="paper" padding="lg" hairlineBottom>
+      {/* ─── Dashboard ────────────────────────────────────────────── */}
+      <Section tone="ink" padding="lg" hairlineBottom>
         <Container>
-          <SectionHeader
-            eyebrow="Integration"
-            eyebrowNumber={4}
-            title="Built to plug into your operations."
-            description="Eneon Connect works with your existing stack — not against it."
-            align="start"
-          />
-          <div className="mt-16">
-            <FeatureGrid features={integrationFeatures} columns={4} />
-          </div>
-        </Container>
-      </Section>
-
-      {/* ─── Protocol callout ───────────────────────────────────────── */}
-      <Section tone="paper" padding="lg" hairlineBottom>
-        <Container>
-          <CalloutBlock
-            tone="ink"
-            eyebrow="Protocols & APIs"
-            title="Modbus TCP. DNP3. REST. Webhooks. MQTT."
-            body="Connect to your SCADA, your EMS, your ticketing system. Export historical data for warranty tracking, regulatory reporting, or your own analytics pipeline."
-            footer={
-              <span className="label-mono text-white/60">
-                Eneon Connect — API documentation available on request
+          <FadeIn>
+            <div className="flex items-end justify-between flex-wrap gap-4 pb-6">
+              <div className="flex flex-col gap-2">
+                <EyebrowLabel number={2} tone="ink">
+                  Live Environment
+                </EyebrowLabel>
+                <h2 className="text-3xl md:text-4xl font-medium tracking-[-0.03em] text-white">
+                  Interactive console demo.
+                </h2>
+              </div>
+              <span className="label-mono text-white/50">
+                Demo data · production parity
               </span>
-            }
-          />
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <ConnectDashboard />
+          </FadeIn>
         </Container>
       </Section>
 
-      {/* ─── Final CTA ──────────────────────────────────────────────── */}
-      <Section tone="raised" padding="lg">
+      {/* ─── Capability strip ─────────────────────────────────────── */}
+      <Section tone="raised" padding="lg" hairlineBottom>
         <Container>
-          <CTABlock
-            tone="default"
-            eyebrow="See it live"
-            title="Walk through Eneon Connect with an engineer."
-            description="We'll show you a live deployment, pulled from a real operational system. One business day turnaround on demo requests."
-            primary={{ label: "Request a Demo", href: "/quote" }}
-            secondary={{ label: "Back to Product", href: "/product" }}
-          />
+          <FadeIn>
+            <div className="flex flex-col gap-2 max-w-2xl mb-10">
+              <EyebrowLabel number={3}>Capabilities</EyebrowLabel>
+              <h2 className="text-3xl md:text-4xl font-medium tracking-[-0.03em] text-[var(--color-navy-500)]">
+                What ships with every site.
+              </h2>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--line)] hairline">
+              {[
+                {
+                  n: "01",
+                  t: "Cell-level telemetry",
+                  d: "Voltage, temperature, and SOC per cell. 192 cells per rack, logged every second.",
+                },
+                {
+                  n: "02",
+                  t: "24-hour dispatch",
+                  d: "Drag charge/discharge blocks or let Connect optimize for peak, frequency, or arbitrage.",
+                },
+                {
+                  n: "03",
+                  t: "Augmentation modeling",
+                  d: "Project 20-year retention with and without mid-life augmentation — live from fleet data.",
+                },
+                {
+                  n: "04",
+                  t: "Round-trip analytics",
+                  d: "Efficiency, cycle count, and warranty position benchmarked against spec.",
+                },
+                {
+                  n: "05",
+                  t: "Alarm triage",
+                  d: "Critical/warn/info routing with code-level diagnostics and escalation history.",
+                },
+                {
+                  n: "06",
+                  t: "Multi-site rollup",
+                  d: "One login, every operational site. Compare fleets, aggregate dispatch, export reports.",
+                },
+              ].map((c) => (
+                <div
+                  key={c.n}
+                  className="bg-[var(--color-surface-raised)] p-6 md:p-8 flex flex-col gap-4"
+                >
+                  <span className="stat-digit text-4xl text-[var(--color-accent-600)]">
+                    {c.n}
+                  </span>
+                  <h3 className="text-xl font-medium tracking-[-0.02em] text-[var(--color-navy-500)]">
+                    {c.t}
+                  </h3>
+                  <p className="text-[var(--color-paper-600)] leading-relaxed">
+                    {c.d}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      <Section tone="paper" padding="lg">
+        <Container>
+          <FadeIn>
+            <CTABlock
+              tone="ink"
+              eyebrow="Operate"
+              title="Put Connect on your operator's screen."
+              description="Every FlexBlock ships with Connect. We size, deploy, and tune — your team dispatches."
+              primary={{ label: "Request a Demo", href: "/quote" }}
+              secondary={{ label: "See the Hardware", href: "/product" }}
+            />
+          </FadeIn>
         </Container>
       </Section>
     </PageShell>
