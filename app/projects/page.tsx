@@ -3,16 +3,15 @@ import {
   PageShell,
   Section,
   Container,
-  SectionHeader,
 } from "@/components/layout";
 import { Button, EyebrowLabel } from "@/components/atoms";
 import { Image } from "@/components/media";
 import {
-  ProjectCard,
   CTABlock,
   Breadcrumbs,
 } from "@/components/blocks";
-import { FadeIn, AnimatedStatBlock, HeroReveal } from "@/components/motion";
+import { ProjectFilterGrid } from "@/components/blocks/ProjectFilterGrid";
+import { FadeIn, HeroReveal } from "@/components/motion";
 import { projects, totalProjects } from "@/content/projects";
 
 export const metadata: Metadata = {
@@ -22,21 +21,14 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsIndexPage() {
-  const indexStats = [
-    { value: totalProjects.toString(), unit: "", label: "Projects Deployed" },
-    { value: "85", unit: "MWh", label: "Capacity Online" },
-    { value: "20", unit: "yr", label: "Service Life" },
-    { value: "2013", unit: "", label: "Operating Since" },
-  ];
-
-  // Featured project — the largest deployment
-  const featured = projects[1]; // Lyon County, 26 MWh
+  const featured = projects[1]; // Lyon County, 26 MWh — largest deployment
   const remaining = projects.filter((p) => p.slug !== featured.slug);
 
-  // Group remaining by type
-  const utilityProjects = remaining.filter((p) => p.type === "Utility");
-  const commercialProjects = remaining.filter((p) => p.type === "Commercial");
-  const microgridProjects = remaining.filter((p) => p.type === "Microgrid");
+  const totalMwh = projects
+    .reduce((sum, p) => sum + (p.capacityMwh ?? 0), 0)
+    .toFixed(1);
+  const years = projects.map((p) => p.year).filter(Boolean) as number[];
+  const earliest = Math.min(...years);
 
   return (
     <PageShell>
@@ -48,195 +40,179 @@ export default function ProjectsIndexPage() {
         </Container>
       </Section>
 
+      {/* ─── Hero ─────────────────────────────────────────────────── */}
       <Section tone="paper" padding="xl" blueprint hairlineBottom>
         <Container>
           <HeroReveal className="flex flex-col gap-10 max-w-5xl">
-            <EyebrowLabel number={1}>Projects</EyebrowLabel>
+            <EyebrowLabel number={1}>Projects / Index</EyebrowLabel>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-[-0.035em] leading-[0.98] text-[var(--color-navy-500)]">
-              Deployed where it matters.
+              Deployed where <br className="hidden md:block" />
+              <span className="text-[var(--color-paper-600)]">
+                reliability is non-negotiable.
+              </span>
             </h1>
             <p className="max-w-2xl text-lg md:text-xl leading-relaxed text-[var(--color-paper-600)]">
-              From New England community solar to Ontario Global Adjustment
-              peak shaving — every Eneon system operates where reliability and
-              economics have to work together.
+              {totalProjects} operational BESS installations across North
+              America — utility-scale solar firming, Ontario Global Adjustment
+              peak shaving, and community microgrids. Every one on the same
+              containerized FlexBlock platform.
             </p>
           </HeroReveal>
         </Container>
       </Section>
 
-      <Section tone="paper" padding="sm" hairlineBottom>
+      {/* ─── Stat strip (dark, cartographic) ─────────────────────── */}
+      <Section tone="ink" padding="sm" hairlineBottom>
         <Container>
-          <AnimatedStatBlock stats={indexStats} columns={4} size="xl" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10">
+            {[
+              { k: "Projects", v: totalProjects.toString(), u: "" },
+              { k: "Capacity", v: totalMwh, u: "MWh" },
+              { k: "Since", v: earliest.toString(), u: "" },
+              { k: "Service Life", v: "20", u: "yr" },
+            ].map((s) => (
+              <div
+                key={s.k}
+                className="flex flex-col gap-2 bg-[var(--color-navy-500)] p-6"
+              >
+                <span className="label-mono text-white/60">{s.k}</span>
+                <span className="stat-digit text-4xl md:text-5xl text-white">
+                  {s.v}
+                  {s.u && (
+                    <span className="ml-2 text-base md:text-lg text-[var(--color-accent-400)] opacity-90">
+                      {s.u}
+                    </span>
+                  )}
+                </span>
+              </div>
+            ))}
+          </div>
         </Container>
       </Section>
 
-      {/* ─── Featured project (larger card, breaks the grid) ──────── */}
+      {/* ─── Featured (grid-breaking, image right) ───────────────── */}
       <Section tone="raised" padding="lg" hairlineBottom>
         <Container>
           <FadeIn>
-            <SectionHeader
-              eyebrow="Featured"
-              title="Largest deployment"
-              align="start"
-            />
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-7">
-                <Image
-                  alt={featured.image.alt}
-                  src={featured.image.src}
-                  ratio="16/9"
-                  treatment="none"
-                  fill
-                  sizes="(min-width: 1024px) 60vw, 100vw"
-                />
-              </div>
-              <div className="lg:col-span-5 flex flex-col gap-6">
-                <EyebrowLabel>{featured.type} · {featured.location}</EyebrowLabel>
-                <h2 className="text-3xl md:text-5xl font-medium tracking-[-0.03em] leading-[1.05] text-[var(--color-navy-500)]">
-                  {featured.title}
+            <div className="flex items-end justify-between flex-wrap gap-4 hairline-b pb-6">
+              <div className="flex flex-col gap-2">
+                <EyebrowLabel number={2}>Featured / Flagship</EyebrowLabel>
+                <h2 className="text-3xl md:text-4xl font-medium tracking-[-0.03em] text-[var(--color-navy-500)]">
+                  Largest single-site deployment.
                 </h2>
-                <p className="text-lg leading-relaxed text-[var(--color-paper-600)]">
+              </div>
+              <span className="label-mono text-[var(--color-paper-500)]">
+                {featured.commissioned}
+              </span>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.1}>
+            <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-7 order-2 lg:order-1 flex flex-col gap-8">
+                <div className="flex items-center gap-3 label-mono text-[var(--color-paper-500)]">
+                  <span>{featured.type}</span>
+                  <span aria-hidden className="opacity-40">/</span>
+                  <span>{featured.location}</span>
+                  <span aria-hidden className="opacity-40">/</span>
+                  <span className="text-[var(--color-signal-ok)]">
+                    {featured.status}
+                  </span>
+                </div>
+                <h3 className="text-4xl md:text-6xl font-medium tracking-[-0.03em] leading-[1.02] text-[var(--color-navy-500)]">
+                  {featured.title}
+                </h3>
+                <p className="text-lg leading-relaxed text-[var(--color-paper-600)] max-w-xl">
                   {featured.summary}
                 </p>
-                <div className="flex items-end gap-10 hairline-t pt-6">
+                <dl className="grid grid-cols-3 gap-8 hairline-t pt-8">
                   {featured.capacityMwh != null && (
                     <div>
-                      <span className="label-mono text-[var(--color-paper-500)]">Capacity</span>
-                      <span className="stat-digit text-4xl text-[var(--color-navy-500)] block mt-1">
+                      <dt className="label-mono text-[var(--color-paper-500)]">
+                        Capacity
+                      </dt>
+                      <dd className="stat-digit text-4xl text-[var(--color-navy-500)] mt-2">
                         {featured.capacityMwh}
                         <span className="text-sm ml-1 opacity-60">MWh</span>
-                      </span>
+                      </dd>
                     </div>
                   )}
                   {featured.powerMw != null && (
                     <div>
-                      <span className="label-mono text-[var(--color-paper-500)]">Power</span>
-                      <span className="stat-digit text-4xl text-[var(--color-navy-500)] block mt-1">
+                      <dt className="label-mono text-[var(--color-paper-500)]">
+                        Power
+                      </dt>
+                      <dd className="stat-digit text-4xl text-[var(--color-navy-500)] mt-2">
                         {featured.powerMw}
                         <span className="text-sm ml-1 opacity-60">MW</span>
-                      </span>
+                      </dd>
                     </div>
                   )}
+                  {featured.capacityMwh != null && featured.powerMw != null && (
+                    <div>
+                      <dt className="label-mono text-[var(--color-paper-500)]">
+                        Duration
+                      </dt>
+                      <dd className="stat-digit text-4xl text-[var(--color-navy-500)] mt-2">
+                        {(featured.capacityMwh / featured.powerMw).toFixed(1)}
+                        <span className="text-sm ml-1 opacity-60">hr</span>
+                      </dd>
+                    </div>
+                  )}
+                </dl>
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <Button
+                    variant="primary"
+                    href={`/projects/${featured.slug}`}
+                    trailingIcon
+                  >
+                    View Case Study
+                  </Button>
+                  <Button variant="secondary" href="/quote">
+                    Request similar project
+                  </Button>
                 </div>
-                <Button
-                  variant="primary"
-                  href={`/projects/${featured.slug}`}
-                  trailingIcon
-                  className="self-start"
-                >
-                  View Case Study
-                </Button>
+              </div>
+
+              <div className="lg:col-span-5 order-1 lg:order-2 relative">
+                <div className="absolute -top-4 -left-4 w-24 h-24 border-l-2 border-t-2 border-[var(--color-accent-500)] pointer-events-none" />
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 border-r-2 border-b-2 border-[var(--color-accent-500)] pointer-events-none" />
+                <Image
+                  alt={featured.image.alt}
+                  src={featured.image.src}
+                  ratio="3/2"
+                  treatment="none"
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                />
               </div>
             </div>
           </FadeIn>
         </Container>
       </Section>
 
-      {/* ─── Utility-scale projects ──────────────────────────────────── */}
-      {utilityProjects.length > 0 && (
-        <Section tone="paper" padding="lg" hairlineBottom>
-          <Container>
-            <FadeIn>
-              <SectionHeader
-                eyebrow="Utility-Scale"
-                eyebrowNumber={2}
-                title="Grid-scale deployments."
-                align="start"
-              />
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {utilityProjects.map((p) => (
-                  <ProjectCard
-                    key={p.slug}
-                    title={p.title}
-                    slug={p.slug}
-                    location={p.location}
-                    type={p.type}
-                    status={p.status}
-                    capacityMwh={p.capacityMwh}
-                    powerMw={p.powerMw}
-                    year={p.year}
-                    image={p.image}
-                  />
-                ))}
+      {/* ─── Filter grid (client) ─────────────────────────────────── */}
+      <Section tone="paper" padding="lg" hairlineBottom>
+        <Container>
+          <FadeIn>
+            <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
+              <div className="flex flex-col gap-2">
+                <EyebrowLabel number={3}>Full Fleet</EyebrowLabel>
+                <h2 className="text-3xl md:text-4xl font-medium tracking-[-0.03em] text-[var(--color-navy-500)]">
+                  Every site, operational.
+                </h2>
               </div>
-            </FadeIn>
-          </Container>
-        </Section>
-      )}
+              <span className="label-mono text-[var(--color-paper-500)]">
+                {remaining.length} more projects
+              </span>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.05}>
+            <ProjectFilterGrid projects={remaining} />
+          </FadeIn>
+        </Container>
+      </Section>
 
-      {/* ─── Commercial & Industrial projects ────────────────────────── */}
-      {commercialProjects.length > 0 && (
-        <Section tone="raised" padding="lg" hairlineBottom>
-          <Container>
-            <FadeIn>
-              <SectionHeader
-                eyebrow="Commercial & Industrial"
-                eyebrowNumber={3}
-                title="Behind-the-meter storage."
-                align="start"
-              />
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {commercialProjects.map((p) => (
-                  <ProjectCard
-                    key={p.slug}
-                    title={p.title}
-                    slug={p.slug}
-                    location={p.location}
-                    type={p.type}
-                    status={p.status}
-                    capacityMwh={p.capacityMwh}
-                    powerMw={p.powerMw}
-                    year={p.year}
-                    image={p.image}
-                  />
-                ))}
-              </div>
-            </FadeIn>
-          </Container>
-        </Section>
-      )}
-
-      {/* ─── Microgrid projects ──────────────────────────────────────── */}
-      {microgridProjects.length > 0 && (
-        <Section tone="paper" padding="lg" hairlineBottom>
-          <Container>
-            <FadeIn>
-              <SectionHeader
-                eyebrow="Microgrid"
-                eyebrowNumber={4}
-                title="Off-grid and resiliency."
-                align="start"
-              />
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {microgridProjects.map((p) => (
-                  <ProjectCard
-                    key={p.slug}
-                    title={p.title}
-                    slug={p.slug}
-                    location={p.location}
-                    type={p.type}
-                    status={p.status}
-                    capacityMwh={p.capacityMwh}
-                    powerMw={p.powerMw}
-                    year={p.year}
-                    image={p.image}
-                  />
-                ))}
-              </div>
-            </FadeIn>
-          </Container>
-        </Section>
-      )}
-
-      {/* ─── CTA (default tone) ──────────────────────────────────────── */}
       <Section tone="raised" padding="lg">
         <Container>
           <FadeIn>

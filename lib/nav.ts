@@ -22,6 +22,11 @@ export const primaryNav: NavGroup[] = [
     children: [
       { label: "Overview", href: "/product", description: "The Eneon BESS platform" },
       {
+        label: "Grid Response",
+        href: "/grid-response",
+        description: "Sub-second dispatch theater",
+      },
+      {
         label: "Eneon Connect",
         href: "/connect",
         description: "Monitoring & control software",
@@ -87,6 +92,7 @@ export const footerNav: { heading: string; links: NavLink[] }[] = [
     heading: "Product",
     links: [
       { label: "BESS Platform", href: "/product" },
+      { label: "Grid Response", href: "/grid-response" },
       { label: "Eneon Connect", href: "/connect" },
       { label: "Specifications", href: "/product#specifications" },
       { label: "Sizing Tool", href: "/sizing-tool" },
